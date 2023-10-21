@@ -5,15 +5,103 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <Title> PlanZ: Settings</Title>
     </head>
-    <h1>Settings</h1>
+    <style>
 
-    <nav>
-        <h2>
-        <a href="./index.html"><b>Home</b></a>
-        <a href="./about.html"><b>About</b></a>
-        <a href="./calender.html"><b>Calender</b></a>
-        <a href="./notifications.html"><b>Notifications</b></a>
-        <a href="./settings.html"><b>Settings</b></a>
-        </h2>
-    </nav>
+        body {
+            background-color: #f2e3d6;
+        }
+        h1{
+            color: #d17200;
+        }
+
+        p{
+            color: #59320a;
+        }
+
+        /* 
+        This is the CSS for the logo and Navbar.
+        DO NOT DELETE OR CHANGE BELOW THIS
+        */
+
+        .logoDiv{
+            border-radius: 10px;
+            max-width: 150px;
+            border: 5px solid #d17200;
+            padding: auto;
+            margin: 10px;
+            font-size: 50px;
+            color: #994900;   
+        }
+        nav{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #994900;
+            font-size: x-large;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0px;
+        }
+        li{
+            float: left;
+            border-right:1px solid #020202;
+        }
+        li:last-child{
+            border-right: none;
+        }
+        li a{
+            display: flex;
+            color: #f2e3d6;
+            text-align: center;
+            padding: 14px 50px;
+            text-decoration: none;   
+        }
+        li a:hover:not(.active) {
+            background-color: #59320a;
+        }
+        .active{
+            background-color: #c45400;
+        }
+
+
+    </style>
+</head>
+
+<!--Logo and navbar-->
+<!--DO NOT DELETE-->
+
+<div class="logoDiv">
+    PlanZ
+</div>
+
+  <nav>
+    <li><a href="./index.html"><b>Home</b></a></li>
+    <li><a href="./about.html"><b>About</b></a></li>
+    <li><a href="./calender.html"><b>Calender</b></a></li>
+    <li><a href="./notifications.html"><b>Notifications</b></a></li>
+    <li style="float: right;"><a class="active" href="./settings.html"><b>Settings</b></a></li>
+</nav>
+
+
+<!--Continue Here-->
+<!--Color codes are
+        #59320a - Dark Brown
+        #994900 - Light Brown
+        #c45400 - Orange
+        #d17200 - Light Orange
+        #f2e3d6 - Beige
+    -->
+
+
+<body>
+    <h1>
+Settings Page    
+    </h1>
+
+    <p>
+        meee
+    </p>
+
+</body>
     </html>
