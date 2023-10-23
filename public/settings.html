@@ -64,6 +64,30 @@
             background-color: #c45400;
         }
 
+        .flex-box{
+            flex-direction: column;
+            display: flex;
+            padding: 5px 10% 30px 10%;
+        }
+        .box-header{ 
+            background-color: #c46720;
+            text-align: center;
+            color:#311602;
+            padding: 25px;
+        }
+
+        .box-content {
+            background-color: #bb9b8e;
+            text-align: left;
+            margin: 10px;
+            padding: 25px;
+        }
+
+        .fakeimg {
+            background-color: #aaa;
+            width: 100%;
+            padding: 20px;
+        }
 
     </style>
 </head>
@@ -97,13 +121,68 @@
 
 
 <body>
-    <h1>
-Settings Page    
-    </h1>
-
-    <p>
-        meee
-    </p>
+    <h1>Settings</h1>
+    <br><br>
+    <h2 style="color: #5a310f;">User: MyUserName</h2>
+    <div class="flex-box">
+        <div class="box-header">
+            <h2 style="color: #5a310f;">My Account</h2>
+        </div>
+        <div class="box-content">
+            <div class="fakeimg" style="height: 60px;width:60px;margin: 5px;">User Image</div>
+            <h3>Hello MyUserName</h3>
+            <button style="">Change Email</button>
+            <button style="">Change Password</button>
+            <button style="">Change Username</button>
+            <br><br>
+        </div>
+        <div class="box-header">
+            <h2 style="color: #5a310f;">Preferences</h2>
+        </div>
+        <div class="box-content">
+            <h4>Display Language</h5>
+            <form>
+                <label for="website-lang"></label>
+                <select data-placeholder="EN">
+                    <option value="EN">English</option>
+                    <option value="ES">Spanish</option>
+                  </select>
+            </form>
+            <h4>Theme</h4>
+            <label for="theme">
+                <select data-placeholder="light">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                  </select>
+            </label> <br><br>
+        </div>
+        <div class="box-header">
+            <h2>Notiifcation Settings</h2>
+        </div>
+        <div class="box-content">
+            <h4>Notification Sound</h4>
+            <form>
+                <label for="notif-sound"></label>
+                <select data-placeholder="DefaultSound">
+                    <option value="DefaultSound">Bell</option>
+                    <option value="Saxaphone">Saxaphone</option>
+                    <option value="Shout">Shout</option>
+                    <option value="Magical">Magical</option>
+                    <option value="custom">Custom</option>
+                  </select>
+            </form>
+            <p>To use custom sound an MP3 file must be uploaded.</p>
+            <h4>Upload Custom Sound</h4>
+            <form>
+                <label for="myfile">Select MP3 File: </label>
+                <input type="file" id="myfile" name="myfile"><br><br>
+                <input type="submit" value="Upload Sound">
+            </form>
+        </div>
+        <div style="text-align: center; padding: 20px;">
+            <button class="form" type="submit" style="font-size: larger; background-color:sandybrown;">Save Changes</button>
+        </div>
+    </div>
 
 </body>
-    </html>
+</html>
