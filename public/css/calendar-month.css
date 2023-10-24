@@ -1,36 +1,23 @@
 * {
-    margin:0;
+    margin: 0;
 }
 
 table {
+    color: white;
     width: 700px;
     table-layout: fixed;
+    border-collapse: collapse;
 }
 
 tr {
     height: 100px;
 }
 
-.big tr {
-    height: 83px;
-}
-
 th, td {
-    background-color: #fff0e2;
-    border: 1px black solid;
+    background-color: #d17200;
     width: 100px;
-}
+    border: 1px #994900 solid;
 
-#days-of-week {
-    height:0;
-}
-
-#calendar-head {
-    height: 80px;
-}
-
-th {
-    font-size: 30px;
 }
 
 td {
@@ -43,7 +30,6 @@ a {
 }
 
 ul {
-    color: #59320a;
     font-size: 12px;
     margin: 0;
     padding: 0;
@@ -53,4 +39,35 @@ ul {
 li {
     white-space: nowrap;
     display: inline;
+}
+
+.active {
+    background-color: #c45400;
+}
+
+.big tr {
+    height: 83px;
+}
+
+#calendar-head th {
+    background: white;
+}
+
+#days-of-week th {
+    background-color: #994900;
+}
+
+#days-of-week {
+    height: 30px;
+    vertical-align: center;
+}
+
+#calendar-head {
+    height: 80px;
+}
+
+#calendar-head th {
+    font-size: 30px;
+    color: black;
+    background-color: #f2e3d6;
 }
