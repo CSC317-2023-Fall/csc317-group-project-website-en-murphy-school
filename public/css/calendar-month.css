@@ -1,0 +1,42 @@
+* {
+    margin:0;
+}
+
+table {
+    width: 100%;
+}
+
+tr {
+    height: 100px;
+}
+
+.big tr {
+    height: 83px;
+}
+
+th, td {
+    background-color: #fff0e2;
+    border: 1px black solid;
+    width:100px;
+}
+
+#days-of-week {
+    height:0px;
+}
+
+#calendar-head {
+    height: 80px;
+}
+
+th {
+    font-size: 30px;
+}
+
+td {
+    vertical-align: top;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
