@@ -2,316 +2,110 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
     <Title> PlanZ: Home</Title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="images/favicon_io/site.webmanifest">
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        body {
-            font-family: Verdana, sans-serif;
-        }
-
-        .month {
-            padding: 70px 25px;
-            width: 100%;
-            background: #1abc9c;
-            text-align: center;
-        }
-
-        .month ul {
-            margin: 0;
-            padding: 0;
-        }
-
-        .month ul li {
-            color: white;
-            font-size: 20px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .month .prev {
-            float: left;
-            padding-top: 10px;
-        }
-
-        .month .next {
-            float: right;
-            padding-top: 10px;
-        }
-
-        .weekdays {
-            margin: 0;
-            padding: 10px 0;
-            background-color: #994900;
-        }
-
-        .weekdays li {
-            display: inline-block;
-            width: 13.6%;
-            color: #f2e3d6;
-            text-align: center;
-        }
-
-        .days {
-            padding: 10px 0;
-            background: #d17200;
-            margin: 0;
-        }
-
-        .days li {
-            list-style-type: none;
-            display: inline-block;
-            width: 13.6%;
-            text-align: center;
-            margin-bottom: 5px;
-            font-size: 30px;
-            color: #f2e3d6;
-        }
-
-        .days li .active {
-            padding: 5px;
-            background: #c45400;
-            color: #d17200 !important
-        }
-
-        /* Add media queries for smaller screens */
-        @media screen and (max-width: 720px) {
-            .weekdays li, .days li {
-                width: 13.1%;
-            }
-        }
-
-        @media screen and (max-width: 420px) {
-            .weekdays li, .days li {
-                width: 12.5%;
-            }
-
-            .days li .active {
-                padding: 2px;
-            }
-        }
-
-        @media screen and (max-width: 290px) {
-            .weekdays li, .days li {
-                width: 12.2%;
-            }
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f2e3d6;
-        }
-
-        h1{
-            font-size: 60px;
-            color: #994900;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 40px;
-        }
-
-        p {
-            color: #59320a;
-        }
-
-        #todo-list-items {
-            list-style-type: none;
-            font-size: 30px;
-        }
-
-        /*.card {
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); !* Optional: Adds a shadow *!
-            padding: 20px; !* Optional: Add padding for content *!
-            background-color: #ffffff; !* Optional: Set a background color *!
-        }*/
-
-        .card {
-            /* Add shadows to create the "card" effect */
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-        }
-
-        /* On mouse-over, add a deeper shadow */
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-        }
-
-        /* Add some padding inside the card container */
-        .container {
-            padding: 2px 16px;
-        }
-
-        /*
-        This is the CSS for the logo and Navbar.
-        DO NOT DELETE OR CHANGE BELOW THIS
-        */
-
-        .logoDiv {
-            border-radius: 10px;
-            max-width: 150px;
-            border: 5px solid #d17200;
-            padding: auto;
-            margin: 10px;
-            font-size: 50px;
-            color: #994900;
-        }
-
-        nav {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #994900;
-            font-size: x-large;
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0px;
-        }
-
-        nav li {
-            float: left;
-            border-right: 1px solid #020202;
-        }
-
-        li:last-child {
-            border-right: none;
-        }
-
-        li a {
-            display: flex;
-            color: #f2e3d6;
-            text-align: center;
-            padding: 14px 50px;
-            text-decoration: none;
-        }
-
-        li a:hover:not(.active) {
-            background-color: #59320a;
-        }
-
-        .active {
-            background-color: #c45400;
-        }
-
-
-    </style>
+    <link href="images/favicon_io/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="images/favicon_io/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="images/favicon_io/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="images/favicon_io/site.webmanifest" rel="manifest">
 </head>
 
-<!--Logo and navbar-->
-<!--DO NOT DELETE-->
-
-<div class="logoDiv">
-    PlanZ
-</div>
-
-<nav>
-    <li><a class="active" href="./index.html"><b>Home</b></a></li>
-    <li><a href="./about.html"><b>About</b></a></li>
-    <li><a href="./calender.html"><b>Calendar</b></a></li>
-    <li><a href="./notifications.html"><b>Notifications</b></a></li>
-    <li><a href="login.html"><b>Login</b></a></li>
-    <li style="float: right;"><a href="./settings.html"><b>Settings</b></a></li>
-</nav>
-
-<!--Continue Here-->
-<!--Color codes are
-    #59320a - Dark Brown
-    #994900 - Light Brown
-    #c45400 - Orange
-    #d17200 - Light Orange
-    #f2e3d6 - Beige
--->
-
 <body>
-    
+
+<header>
+    <img alt="logo" id="logo" src="images/logo.png">
+
+    <nav>
+        <ul>
+            <li><a class="active" href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="./notifications.html">Notifications</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li class="last-nav"><a href="./settings.html">Settings</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="content">
     <h1><u>Welcome to PlanZ: Your Ultimate Task Organization Hub </u></h1>
 
-<div id="todo-list" class="card" style="width: 20%; height: 50%; margin: auto;">
-    <h2>To-Do List</h2>
-    <ul id="todo-list-items">
-        <li><input type="checkbox" id="task1"><label for="task1">Water Plants</label></li>
-        <li><input type="checkbox" id="task2"><label for="task2">Web Dev Homework</label></li>
-        <li><input type="checkbox" id="task3"><label for="task3">Level Up Characters</label></li>
-        <li><input type="checkbox" id="task4"><label for="task4">Take a Nap</label></li>
-    </ul>
-</div>
-
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-        <a href="#" class="btn btn-primary">Task Settings</a>
+    <div class="card" id="todo-list" style="width: 20%; height: 50%; margin: auto;">
+        <h2>To-Do List</h2>
+        <ul id="todo-list-items">
+            <li><input id="task1" type="checkbox"><label for="task1">Water Plants</label></li>
+            <li><input id="task2" type="checkbox"><label for="task2">Web Dev Homework</label></li>
+            <li><input id="task3" type="checkbox"><label for="task3">Level Up Characters</label></li>
+            <li><input id="task4" type="checkbox"><label for="task4">Take a Nap</label></li>
+        </ul>
     </div>
-</div>
 
-<ul class="weekdays">
-    <li>Mo</li>
-    <li>Tu</li>
-    <li>We</li>
-    <li>Th</li>
-    <li>Fr</li>
-    <li>Sa</li>
-    <li>Su</li>
-</ul>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a class="btn btn-primary" href="#">Task Settings</a>
+        </div>
+    </div>
 
-<ul class="days">
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-    <li>6</li>
-    <li>7</li>
-    <li>8</li>
-    <li>9</li>
-    <li><span class="active">10</span></li>
-    <li>11</li>
-    <li>12</li>
-    <li>13</li>
-    <li>14</li>
-    <li>15</li>
-    <li>16</li>
-    <li>17</li>
-    <li>18</li>
-    <li>19</li>
-    <li>20</li>
-    <li>21</li>
-    <li>22</li>
-    <li>23</li>
-    <li>24</li>
-    <li>25</li>
-    <li>26</li>
-    <li>27</li>
-    <li>28</li>
-    <li>29</li>
-    <li>30</li>
-    <li>31</li>
-</ul>
+    <ul class="weekdays">
+        <li>Mo</li>
+        <li>Tu</li>
+        <li>We</li>
+        <li>Th</li>
+        <li>Fr</li>
+        <li>Sa</li>
+        <li>Su</li>
+    </ul>
 
-<div class="card" id="notepad">
-    <h2>Notepad</h2>
-    <br>
-    <textarea name="message" rows="10" cols="40">
+    <ul class="days">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li><span class="active">10</span></li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+    </ul>
+
+    <div class="card" id="notepad">
+        <h2>Notepad</h2>
+        <br>
+        <label for="note-box"></label>
+        <textarea cols="40" id="note-box" name="message" rows="10">
             Jot down your thoughts here.
         </textarea>
+
+    </div>
 </div>
 </body>
 </html>

@@ -1,0 +1,25 @@
+.flex-box {
+    flex-direction: column;
+    display: flex;
+    padding: 5px 10% 30px 10%;
+}
+
+.box-header {
+    background-color: #c46720;
+    text-align: center;
+    color: #311602;
+    padding: 25px;
+}
+
+.box-content {
+    background-color: #bb9b8e;
+    text-align: left;
+    margin: 10px;
+    padding: 25px;
+}
+
+.fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+}

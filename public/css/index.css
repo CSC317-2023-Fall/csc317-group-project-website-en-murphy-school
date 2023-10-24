@@ -1,0 +1,118 @@
+.month {
+    padding: 70px 25px;
+    width: 100%;
+    background: #1abc9c;
+    text-align: center;
+}
+
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+
+.month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.month .prev {
+    float: left;
+    padding-top: 10px;
+}
+
+.month .next {
+    float: right;
+    padding-top: 10px;
+}
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #994900;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: #f2e3d6;
+    text-align: center;
+}
+
+.days {
+    padding: 10px 0;
+    background: #d17200;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 30px;
+    color: #f2e3d6;
+}
+
+.days li .active {
+    padding: 5px;
+    background: #c45400;
+    color: #d17200 !important
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width: 720px) {
+    .weekdays li, .days li {
+        width: 13.1%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .weekdays li, .days li {
+        width: 12.5%;
+    }
+
+    .days li .active {
+        padding: 2px;
+    }
+}
+
+@media screen and (max-width: 290px) {
+    .weekdays li, .days li {
+        width: 12.2%;
+    }
+}
+
+h2 {
+    font-size: 40px;
+}
+
+#todo-list-items {
+    list-style-type: none;
+    font-size: 30px;
+}
+
+/*.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); !* Optional: Adds a shadow *!
+    padding: 20px; !* Optional: Add padding for content *!
+    background-color: #ffffff; !* Optional: Set a background color *!
+}*/
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}

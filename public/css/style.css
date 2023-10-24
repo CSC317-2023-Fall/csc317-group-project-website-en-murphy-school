@@ -15,7 +15,7 @@
 
 body {
     background-color: var(--planzBeige);
-    font-family: Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 h1 {
@@ -37,6 +37,12 @@ nav {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    font-weight: bold;
+    vertical-align: center;
+}
+
+.last-nav {
+    float: right;
 }
 
 .logoDiv {

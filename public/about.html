@@ -1,130 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <Title> PlanZ: About</Title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/about.css" rel="stylesheet" type="text/css">
+    <Title> PlanZ: About</Title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="images/favicon_io/site.webmanifest">
-
-    <style>
-
-
-body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #f2e3d6;
-    }
-        h1{
-            color: #c45400;
-            font-size: 70px;
-            text-align: center;
-        }
-
-        h2{
-            color: #994900;
-            font-size: 40px;
-            text-align: center;
-            text-decoration: overline;
-        }
-
-        h3{
-            color: #994900;
-            font-size: 20px;
-            text-align: center;
-        }
-
-        .textDiv{
-            color: #59320a;
-            border-radius: 10px;
-            max-width: 1000px;
-            text-align: center;
-            border: 5px solid #994900;
-            padding: auto;
-            margin: auto;
-            font-size: 30px;
-        }
-
-        /* 
-        This is the CSS for the logo and Navbar.
-        DO NOT DELETE OR CHANGE BELOW THIS
-        */
-
-        .logoDiv{
-            border-radius: 10px;
-            max-width: 150px;
-            border: 5px solid #d17200;
-            padding: auto;
-            margin: 10px;
-            font-size: 50px;
-            color: #994900;   
-        }
-        nav{
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #994900;
-            font-size: x-large;
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0px;
-        }
-        li{
-            float: left;
-            border-right:1px solid #020202;
-        }
-        li:last-child{
-            border-right: none;
-        }
-        li a{
-            display: flex;
-            color: #f2e3d6;
-            text-align: center;
-            padding: 14px 50px;
-            text-decoration: none;   
-        }
-        li a:hover:not(.active) {
-            background-color: #59320a;
-        }
-        .active{
-            background-color: #c45400;
-        }
-
-
-    </style>
+    <link href="images/favicon_io/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="images/favicon_io/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="images/favicon_io/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="images/favicon_io/site.webmanifest" rel="manifest">
 </head>
 
-<!--Logo and navbar-->
-<!--DO NOT DELETE-->
-
-<div class="logoDiv">
-    PlanZ
-</div>
-
-  <nav>
-    <li><a href="./index.html"><b>Home</b></a></li>
-    <li><a class="active" href="./about.html"><b>About</b></a></li>
-    <li><a href="./calender.html"><b>Calender</b></a></li>
-    <li><a href="./notifications.html"><b>Notifications</b></a></li>
-    <li><a href="login.html"><b>Login</b></a></li>
-    <li style="float: right;"><a href="./settings.html"><b>Settings</b></a></li>
-</nav>
-
-
-<!--Continue Here-->
-<!--Color codes are
-        #59320a - Dark Brown
-        #994900 - Light Brown
-        #c45400 - Orange
-        #d17200 - Light Orange
-        #f2e3d6 - Beige
-    -->
-
 <body>
+<header>
+    <img alt="logo" id="logo" src="images/logo.png">
+
+    <nav>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a class="active" href="./about.html">About</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="./notifications.html">Notifications</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li class="last-nav"><a href="./settings.html">Settings</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<div class="content">
     <h1>
         <b><u>About Us</u></b>
     </h1>
@@ -140,9 +47,9 @@ body {
 
     <div class="textDiv">
         At PlanZ, we believe in the power of organization to transform the way
-        you approach tasks, from academic challenges to everyday responsibilities. 
+        you approach tasks, from academic challenges to everyday responsibilities.
         Our mission is to help simplify your workload by providing a centralized
-        platform where you can effortly manage and manipulate your tasks in one place
+        platform where you can effectively manage and manipulate your tasks in one place
     </div>
     <br><br>
 
@@ -151,8 +58,8 @@ body {
     </h2>
 
     <div class="textDiv">
-        Akin to our group name, we found another thing in common, frutration with online
-        organizers and planners. Between academic commitments, work obligations, and 
+        Akin to our group name, we found another thing in common, frustration with online
+        organizers and planners. Between academic commitments, work obligations, and
         personal responsibilities, it was overwhelming to keep everything in order. That's
         when we came up with the idea of PlanZ - a solution designed to bring clarity
         and efficiency to your task management.
@@ -172,9 +79,9 @@ body {
         tasks from multiple place onto one site, PlanZ. Say goodbye to the annoying hassle
         of switching between tabs!
         <br><br>
-        <i>Smart Task Manipulation:</i> PlanZ isn't just a static to-do list. Set notifications, 
+        <i>Smart Task Manipulation:</i> PlanZ isn't just a static to-do list. Set notifications,
         customize your assignments and more. Watch as PlanZ adjusts to keep you on top of your
-        game. Whether you are a student with deadlines, or a professional with  projects, we've got you covered!
+        game. Whether you are a student with deadlines, or a professional with projects, we've got you covered!
     </div>
     <br><br>
 
@@ -185,8 +92,9 @@ body {
     <div class="textDiv">
         Your productivity is our priority. We are committed to continuously enhancing PlanZ
         based on your feedback and experience. Join the PlanZ community today and experience
-        the difference of peak organization tools. 
+        the difference of peak organization tools.
     </div>
+</div>
 
 </body>
 </html>
