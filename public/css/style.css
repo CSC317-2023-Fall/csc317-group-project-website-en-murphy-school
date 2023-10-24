@@ -15,6 +15,7 @@
 
 body {
     background-color: #f2e3d6;
+    font-family: Verdana, sans-serif;
 }
 
 h1 {
@@ -44,7 +45,7 @@ nav {
     height: 37px;
     border: 5px solid #d17200;
     margin: 10px;
-    padding: 8px;
+    padding: 8px 8px 14px;
     align-content: center;
 }
 
@@ -52,9 +53,9 @@ nav {
     color: #994900;
     alignment: center;
     vertical-align: center;
+    font-weight: normal;
     font-size: 50px;
     line-height: 90%;
-    padding: 0;
     margin: 0;
 }
 
