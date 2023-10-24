@@ -3,7 +3,8 @@
 }
 
 table {
-    width: 100%;
+    width: 700px;
+    table-layout: fixed;
 }
 
 tr {
@@ -17,11 +18,11 @@ tr {
 th, td {
     background-color: #fff0e2;
     border: 1px black solid;
-    width:100px;
+    width: 100px;
 }
 
 #days-of-week {
-    height:0px;
+    height:0;
 }
 
 #calendar-head {
@@ -39,4 +40,17 @@ td {
 a {
     color: #000000;
     text-decoration: none;
+}
+
+ul {
+    color: #59320a;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    white-space: nowrap;
+    display: inline;
 }
