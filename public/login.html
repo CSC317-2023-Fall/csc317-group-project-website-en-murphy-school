@@ -1,108 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <Title> PlanZ: Login</Title>
-    </head>
-    <style>
-
-        body {
-            background-color: #f2e3d6;
-        }
-        h1{
-            color: #d17200;
-        }
-
-        p{
-            color: #59320a;
-        }
-
-        /* 
-        This is the CSS for the logo and Navbar.
-        DO NOT DELETE OR CHANGE BELOW THIS
-        */
-
-        .logoDiv{
-            border-radius: 10px;
-            max-width: 150px;
-            border: 5px solid #d17200;
-            padding: auto;
-            margin: 10px;
-            font-size: 50px;
-            color: #994900;   
-        }
-        nav{
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #994900;
-            font-size: x-large;
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0px;
-        }
-        li{
-            float: left;
-            border-right:1px solid #020202;
-        }
-        li:last-child{
-            border-right: none;
-        }
-        li a{
-            display: flex;
-            color: #f2e3d6;
-            text-align: center;
-            padding: 14px 50px;
-            text-decoration: none;   
-        }
-        li a:hover:not(.active) {
-            background-color: #59320a;
-        }
-        .active{
-            background-color: #c45400;
-        }
-
-
-    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <Title> PlanZ: Login</Title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
 </head>
 
-<!--Logo and navbar-->
-<!--DO NOT DELETE-->
-
+<body>
 <div class="logoDiv">
-    PlanZ
+    <h1 class="logo">PlanZ</h1>
 </div>
 
-  <nav>
-    <li><a href="./index.html"><b>Home</b></a></li>
-    <li><a href="./about.html"><b>About</b></a></li>
-    <li><a href="./calender.html"><b>Calender</b></a></li>
-    <li><a href="notifications.html"><b>Notifications</b></a></li>
-    <li><a class="active" href="./login.html"><b>Login</b></a></li>
-    <li style="float: right;"><a href="./settings.html"><b>Settings</b></a></li>
+<nav>
+    <ul>
+        <li><a href="./index.html"><b>Home</b></a></li>
+        <li><a href="./about.html"><b>About</b></a></li>
+        <li><a href="./calender.html"><b>Calender</b></a></li>
+        <li><a href="notifications.html"><b>Notifications</b></a></li>
+        <li><a class="active" href="./login.html"><b>Login</b></a></li>
+        <li style="float: right;"><a href="./settings.html"><b>Settings</b></a></li>
+    </ul>
 </nav>
 
+<div class="content">
+    <section id="login">
+        <h2>Log In</h2>
 
-<!--Continue Here-->
-<!--Color codes are
-        #59320a - Dark Brown
-        #994900 - Light Brown
-        #c45400 - Orange
-        #d17200 - Light Orange
-        #f2e3d6 - Beige
-    -->
+        <form id="login-form" action="index.html">
+            <div class="form-group">
+                <label for="login-email">Email: </label>
+                <input type="email" id="login-email" name="email" placeholder="youremail@mail.abc" required>
+            </div>
 
+            <div class="form-group">
+                <label for="login-password">Password: </label>
+                <input type="password" name="password" id="login-password" placeholder="Password">
+            </div>
 
-<body>
-    <h1>
-Login Page    
-    </h1>
+            <div class="form-group">
+                <input type="checkbox" id="stay-login" name="stay-login">
+                <label for="stay-login">Keep me logged in</label>
+            </div>
 
-    <p>
-        meee
-    </p>
+            <div class="form-group">
+                <input type="submit" value="Log In">
+            </div>
+        </form>
+    </section>
+
+    <p><a href="signup.html">Create an Account</a></p>
+</div>
 
 </body>
 </html>

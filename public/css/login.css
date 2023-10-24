@@ -1,0 +1,20 @@
+:root {
+    --planzDarkBrown: #59320a;
+    --planzLightBrown: #994900;
+    --planzOrange: #c45400;
+    --planzLightOrange: #d17200;
+    --planzBeige: #f2e3d6;
+    --planzOffWhite: #fff0e2;
+}
+
+a {
+    color: var(--planzDarkBrown);
+    text-decoration: none;
+}
+
+#login {
+    background-color: var(--planzLightOrange);
+    border: var(--planzDarkBrown);
+    width: fit-content;
+    padding: 10px;
+}
