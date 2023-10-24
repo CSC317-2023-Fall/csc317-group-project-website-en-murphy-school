@@ -59,6 +59,11 @@ nav {
     margin: 0;
 }
 
+header #logo {
+    margin: 10px;
+    width: 150px;
+}
+
 nav li {
     float: left;
     border-right: 1px solid var(--planzVeryDarkGray);
