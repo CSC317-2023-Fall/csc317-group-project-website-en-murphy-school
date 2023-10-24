@@ -12,40 +12,48 @@ a {
     text-decoration: none;
 }
 
-#login {
+#signup {
     background-color: var(--planzLightOrange);
     border: var(--planzDarkBrown) 5px solid;
     border-radius: 15px;
-    width: 360px;
+    width: 400px;
     padding: 10px;
 }
 
-#login h2 {
+#signup h2 {
     padding-bottom: 15px;
 }
 
-#login .form-group {
+.form-group {
     padding-bottom: 10px;
     display: block;
 }
 
-#login label {
+label{
     position: relative;
-    float: left;
+    display: inline-block;
+    width: 195px;
     left: 0;
 }
 
-#login input:not(input[type=submit]) {
+.form-group label[for=last-name], label[for=confirm-password] {
     position: relative;
-    float: right;
 }
 
-#login input[type=checkbox] {
+.form-group label[for=last-name] {
+    position: relative;
+}
+
+#first-name, #last-name, #password, #confirm-password {
+    width: 130px;
+    margin-right: 60px;
+}
+
+input[type=email] {
+    width: 200px;
+    margin-right: 70px;
+}
+
+input[type=checkbox] {
     cursor: pointer;
-}
-
-em {
-    font-style: normal;
-    font-weight: bold;
-    color: black;
 }

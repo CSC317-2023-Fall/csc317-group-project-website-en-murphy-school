@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <Title> PlanZ: Login</Title>
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/signup.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -24,7 +24,58 @@
     </ul>
 </nav>
 
+<div class="content">
+    <section id="signup">
+        <h2>Sign Up</h2>
 
+        <form action="login.html" class="my-form" id="signup-form">
+            <div class="form-group">
+                <label for="first-name">First Name: </label>
+                <label for="last-name">Last Name: </label>
+
+                <br/>
+
+                <input id="first-name" name="text" placeholder="First Name" required type="text">
+                <input id="last-name" name="text" placeholder="Last Name" required type="text">
+            </div>
+
+            <br/>
+
+            <div class="form-group">
+                <label for="login-email">Email: </label>
+
+                <br/>
+
+                <input id="login-email" name="email" placeholder="youremail@mail.abc" required type="email">
+            </div>
+
+            <br/>
+
+            <div class="form-group">
+                <label for="password">Password: </label>
+                <label for="confirm-password">Confirm: </label>
+
+                <br/>
+
+                <input id="password" name="password" placeholder="Password" type="password">
+                <input id="confirm-password" name="password" placeholder="Confirm Password" type="password">
+            </div>
+
+            <br/>
+
+            <div class="form-group">
+                <label class="checkbox-label" for="stay-login">Keep me logged in: </label>
+                <input id="stay-login" name="stay-login" type="checkbox">
+            </div>
+
+            <br/>
+
+            <div class="form-group">
+                <input type="submit" value="Sign Up">
+            </div>
+        </form>
+    </section>
+</div>
 
 </body>
 </html>
