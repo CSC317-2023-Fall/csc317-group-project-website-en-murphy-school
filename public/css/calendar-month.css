@@ -1,3 +1,13 @@
+:root {
+    --planzDarkBrown: #59320a;
+    --planzLightBrown: #994900;
+    --planzOrange: #c45400;
+    --planzLightOrange: #d17200;
+    --planzBeige: #f2e3d6;
+    --planzOffWhite: #fff0e2;
+    --planzVeryDarkGray: #020202;
+}
+
 * {
     margin: 0;
 }
@@ -14,9 +24,9 @@ tr {
 }
 
 th, td {
-    background-color: #d17200;
+    background-color: var(--planzLightOrange);
     width: 100px;
-    border: 1px #994900 solid;
+    border: 1px var(--planzLightBrown) solid;
 
 }
 
@@ -25,7 +35,7 @@ td {
 }
 
 a {
-    color: #000000;
+    color: black;
     text-decoration: none;
 }
 
@@ -42,7 +52,7 @@ li {
 }
 
 .active {
-    background-color: #c45400;
+    background-color: var(--planzOrange);
 }
 
 .big tr {
@@ -54,7 +64,7 @@ li {
 }
 
 #days-of-week th {
-    background-color: #994900;
+    background-color: var(--planzLightBrown);
 }
 
 #days-of-week {
@@ -69,5 +79,5 @@ li {
 #calendar-head th {
     font-size: 30px;
     color: black;
-    background-color: #f2e3d6;
+    background-color: var(--planzBeige);
 }
