@@ -1,4 +1,92 @@
-iframe {
-    width: 700px;
-    height: 620px;
+/*
+    Color codes are
+        #59320a - Dark Brown
+        #994900 - Light Brown
+        #c45400 - Orange
+        #d17200 - Light Orange
+        #f2e3d6 - Beige
+        #fff0e2 - Off White
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f2e3d6;
+}
+
+h1 {
+    color: #d17200;
+}
+
+
+p {
+    color: #59320a;
+}
+
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #994900;
+    font-size: x-large;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.logoDiv {
+    border-radius: 10px;
+    width: max-content;
+    height: 37px;
+    border: 5px solid #d17200;
+    margin: 10px;
+    padding: 8px;
+    align-content: center;
+}
+
+.logo {
+    color: #994900;
+    alignment: center;
+    vertical-align: center;
+    font-size: 50px;
+    line-height: 90%;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    float: left;
+    border-right:1px solid #020202;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li:last-child {
+    border-right: none;
+}
+
+nav li a {
+    display: flex;
+    color: #f2e3d6;
+    text-align: center;
+    padding: 14px 50px;
+    text-decoration: none;
+}
+
+nav li a:hover:not(.active) {
+    background-color: #59320a;
+}
+
+.active {
+    background-color: #c45400;
+}
+
+section {
+    padding: 10px
 }
