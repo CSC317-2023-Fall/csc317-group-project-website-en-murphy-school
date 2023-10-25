@@ -1,9 +1,79 @@
 @import "planz-colors.css";
 
 .content * {
-
+    align-content: center;
 }
 
 #calendar {
+    width: 100%;
+    aspect-ratio: 3/2;
+}
 
+#event-form {
+    max-width: 600px;
+    min-width: 300px;
+}
+
+#month {
+    width: 100%;
+    height: 100%;
+}
+
+#month table {
+    color: white;
+    table-layout: fixed;
+    border-collapse: collapse;
+    display: flex;
+}
+
+#month tr {
+    height: 16%;
+}
+
+#month #days-of-week {
+    height: 4%;
+    vertical-align: center;
+}
+
+#month th, #month td {
+    background-color: var(--planzLightOrange);
+    border: 0.4vh var(--planzLightBrown) solid;
+    width: calc(100% / 7);
+    border-radius: 2vh;
+    padding: 1vh;
+    font-size: 1.6vw;
+}
+
+#month td {
+    vertical-align: top;
+}
+
+#month ul {
+    list-style: none;
+    font-size: 1.2vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#month li {
+    white-space: nowrap;
+    display: inline;
+}
+
+#month a {
+    color: black;
+    text-decoration: none;
+}
+
+#month .active {
+    background-color: var(--planzOrange);
+}
+
+#month #days-of-week th {
+    background-color: var(--planzOrange);
+}
+
+#calendar-head th {
+    font-size: 3vw;
 }
