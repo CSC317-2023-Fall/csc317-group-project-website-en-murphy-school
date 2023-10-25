@@ -1,17 +1,23 @@
 @import "planz-colors.css";
 
-.content * {
-    align-content: center;
-}
-
 #calendar {
-    width: 100%;
+    width: 90%;
     aspect-ratio: 3/2;
+    margin: auto auto 5%;
 }
 
-#event-form {
-    max-width: 600px;
-    min-width: 300px;
+.container {
+    text-align: center;
+    width: 100%;
+}
+
+#event-form, #assignment-form {
+    text-align: left;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 48%;
+    margin-bottom: 5%;
+    min-width: 400px;
 }
 
 #month {
