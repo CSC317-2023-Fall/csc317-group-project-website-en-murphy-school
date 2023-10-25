@@ -1,11 +1,4 @@
-:root {
-    --planzDarkBrown: #59320a;
-    --planzLightBrown: #994900;
-    --planzOrange: #c45400;
-    --planzLightOrange: #d17200;
-    --planzBeige: #f2e3d6;
-    --planzOffWhite: #fff0e2;
-}
+@import "planz-colors.css";
 
 .my-form {
     width: 40%;

@@ -1,3 +1,5 @@
+@import "planz-colors.css";
+
 h1 {
     color: #c45400;
     font-size: 70px;
@@ -26,11 +28,6 @@ h3 {
     margin: auto;
     font-size: 30px;
 }
-
-/*
-This is the CSS for the logo and Navbar.
-DO NOT DELETE OR CHANGE BELOW THIS
-*/
 
 .logoDiv {
     border-radius: 10px;

@@ -1,15 +1,8 @@
-:root {
-    --planzDarkBrown: #59320a;
-    --planzLightBrown: #994900;
-    --planzOrange: #c45400;
-    --planzLightOrange: #d17200;
-    --planzBeige: #f2e3d6;
-    --planzOffWhite: #fff0e2;
-}
+@import "planz-colors.css";
 
-.my-form h2 {
-    font-size: 30px;
-    padding-bottom: 5px;
+.my-form * {
+    box-sizing: border-box;
+    white-space: nowrap;
 }
 
 .my-form {
@@ -20,36 +13,35 @@
     padding: 10px;
 }
 
+.my-form h2 {
+    font-size: 30px;
+    padding-bottom: 5px;
+}
+
 .my-form .form-group {
     padding-top: 10px;
 }
 
-.my-form label {
-    position: relative;
+.my-form label, .my-form input {
     display: inline-block;
-    width: 195px;
-    margin-bottom: 5px;
-    font-weight: 500;
-}
-
-.my-form input[type=text], .my-form input[type=password], input[type=email] {
+    width: 30%;
+    margin-right: 10%;
     padding: 3px;
     border-radius: 5px;
 }
 
-.my-form input[type=text], .my-form input[type=password] {
-    width: 130px;
-    margin-right: 54px;
+.my-form label {
+    margin-bottom: 5px;
+    font-weight: 500;
 }
 
 .my-form input[type=email] {
-    width: 200px;
-    margin-right: 70px;
+    width: 40%;
 }
 
 .my-form input[type=checkbox] {
     cursor: pointer;
-
+    width: min-content;
 }
 
 .my-form input[type=submit], .my-form input[type=button] {
@@ -66,6 +58,4 @@
 .my-form input[type=submit]:hover, .my-form input[type=button]:hover {
     background-color: var(--planzBeige);
     color: var(--planzLightBrown);
-    font-weight: bold;
-    font-size: 18px;
 }
