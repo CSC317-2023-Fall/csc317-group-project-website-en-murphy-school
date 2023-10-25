@@ -7,41 +7,21 @@
     --planzOffWhite: #fff0e2;
 }
 
+.my-form {
+    width: 40%;
+    min-width: 400px;
+    margin: auto;
+}
+
+.to-signup {
+    width: 40%;
+    min-width: 400px;
+    margin: 10px auto;
+}
+
 a {
     color: var(--planzDarkBrown);
     text-decoration: none;
-}
-
-#login {
-    background-color: var(--planzLightOrange);
-    border: var(--planzDarkBrown) 5px solid;
-    border-radius: 15px;
-    width: 360px;
-    padding: 10px;
-}
-
-#login h2 {
-    padding-bottom: 15px;
-}
-
-#login .form-group {
-    padding-bottom: 10px;
-    display: block;
-}
-
-#login label {
-    position: relative;
-    float: left;
-    left: 0;
-}
-
-#login input:not(input[type=submit]) {
-    position: relative;
-    float: right;
-}
-
-#login input[type=checkbox] {
-    cursor: pointer;
 }
 
 em {

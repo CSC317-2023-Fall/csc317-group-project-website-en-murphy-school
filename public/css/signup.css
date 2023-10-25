@@ -7,53 +7,17 @@
     --planzOffWhite: #fff0e2;
 }
 
+.my-form {
+    width: 40%;
+    min-width: 400px;
+    margin: auto;
+}
+
 a {
     color: var(--planzDarkBrown);
     text-decoration: none;
 }
 
-#signup {
-    background-color: var(--planzLightOrange);
-    border: var(--planzDarkBrown) 5px solid;
-    border-radius: 15px;
-    width: 400px;
-    padding: 10px;
-}
-
-#signup h2 {
-    padding-bottom: 15px;
-}
-
-.form-group {
-    padding-bottom: 10px;
-    display: block;
-}
-
-label {
-    position: relative;
-    display: inline-block;
-    width: 195px;
-    left: 0;
-}
-
-.form-group label[for=last-name], label[for=confirm-password] {
-    position: relative;
-}
-
-.form-group label[for=last-name] {
-    position: relative;
-}
-
-#first-name, #last-name, #password, #confirm-password {
-    width: 130px;
-    margin-right: 60px;
-}
-
-input[type=email] {
-    width: 200px;
-    margin-right: 70px;
-}
-
-input[type=checkbox] {
-    cursor: pointer;
+.my-form {
+    margin: auto;
 }
