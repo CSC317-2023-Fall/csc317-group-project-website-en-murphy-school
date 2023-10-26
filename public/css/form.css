@@ -53,6 +53,7 @@
     border-radius: 15px;
     background-color: var(--planzLightBrown);
     color: var(--planzBeige);
+    outline: solid 2px;
     border: 0;
     font-weight: bold;
     font-size: 18px;
