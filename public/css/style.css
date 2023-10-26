@@ -51,7 +51,7 @@ nav {
     padding: 10px
 }
 
-@media only screen and (max-height: 500px) {
+@media only screen and (max-height: 700px) {
     header {
         position: relative;
     }
