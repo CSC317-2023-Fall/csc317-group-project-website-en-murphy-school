@@ -43,6 +43,7 @@
     margin-bottom: 5%;
     min-width: 400px;
     height: 442px;
+    min-height: max-content;
 }
 
 #month {
@@ -58,7 +59,7 @@
 }
 
 #month tr {
-    height: 16%;
+    height: 15%;
 }
 
 #month #days-of-week {
