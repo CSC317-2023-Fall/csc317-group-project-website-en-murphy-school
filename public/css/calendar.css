@@ -69,10 +69,10 @@
 
 #month th, #month td {
     background-color: var(--planzLightOrange);
-    border: 0.4vh var(--planzLightBrown) solid;
+    border: 0.2vw var(--planzLightBrown) solid;
     width: calc(100% / 7);
-    border-radius: 2vh;
-    padding: 1vh;
+    border-radius: 1vw;
+    padding: 0.5vw;
     font-size: 1.6vw;
 }
 
@@ -107,5 +107,28 @@
 }
 
 #calendar-head th {
-    font-size: 3vw;
+    font-size: 5vw;
+}
+
+#calendar-head th * {
+    display: inline-block;
+}
+
+#calendar-head img {
+    height: 100%
+}
+
+#calendar-head #month-head {
+    vertical-align: top;
+}
+
+#calendar-head .backward-arrow {
+    float: left;
+    height: 4vw;
+    transform: scaleX(-1);
+}
+
+#calendar-head .forward-arrow {
+    float: right;
+    height: 4vw;
 }
