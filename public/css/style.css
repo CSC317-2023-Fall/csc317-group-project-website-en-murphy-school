@@ -61,7 +61,7 @@ nav {
     }
 }
 
-@media only screen and (max-width: 1140px) {
+@media only screen and (max-width: 890px) {
     header {
         position: relative;
     }
@@ -119,7 +119,7 @@ nav li a {
     display: block;
     color: var(--planzBeige);
     text-align: center;
-    padding: 14px 50px;
+    padding: 14px 30px;
     text-decoration: none;
 }
 
