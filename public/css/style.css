@@ -34,10 +34,6 @@ nav {
     vertical-align: center;
 }
 
-.last-nav {
-    float: right;
-}
-
 .logoDiv {
     border-radius: 10px;
     width: max-content;
@@ -74,6 +70,7 @@ nav ul {
 
 nav li:last-child {
     border-right: none;
+    float: right;
 }
 
 nav li a {

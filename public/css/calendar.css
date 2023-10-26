@@ -1,3 +1,8 @@
+/* TODO: Fix date/time for smaller sizes
+ * TODO: Fix buttons for smaller sizes
+ * TODO: Prevent forms from overloading
+ */
+
 @import "planz-colors.css";
 
 #calendar {
