@@ -61,7 +61,6 @@
     color: white;
     table-layout: fixed;
     border-collapse: collapse;
-    display: flex;
 }
 
 #month tr {
@@ -80,6 +79,9 @@
     border-radius: 1vw;
     padding: 0.5vw;
     font-size: 1.6vw;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 #month td {
@@ -95,8 +97,8 @@
 }
 
 #month li {
-    white-space: nowrap;
-    display: inline;
+    display: inline-block;
+    width: 0;
 }
 
 #month a {
@@ -110,6 +112,41 @@
 
 #month #days-of-week th {
     background-color: var(--planzOrange);
+}
+
+.assignment div, .event div {
+    display: none;
+    position: absolute;
+}
+
+.assignment:hover div, .event:hover div {
+    display: block;
+    border: 0.2vw black solid;
+    border-radius: 0.8vw;
+    z-index: 1;
+    padding: 0.2vw;
+    background-color: var(--planzOffWhite);
+    white-space: normal;
+    width: 15vw;
+}
+
+.assignment-name, .event-name {
+    margin-bottom: 1vw;
+}
+
+.assignment-time, .event-time {
+    font-style: italic;
+    margin-bottom: 0.5em;
+}
+
+.assignment-description, .event-description {
+    color: black;
+}
+
+.assignment .assignment-priority {
+    display: inline;
+    width: 1em;
+    vertical-align: text-bottom;
 }
 
 #calendar-head th {
