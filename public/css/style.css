@@ -17,13 +17,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background-color: var(--planzBeige);
-    z-index: 100;
-}
 
 h1 {
     color: var(--planzLightOrange);
@@ -42,33 +35,26 @@ nav {
     overflow: hidden;
     background-color: var(--planzLightBrown);
     font-size: x-large;
-    top: 0;
     font-weight: bold;
     vertical-align: center;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
 }
 
 .content {
-    margin-top: 142px;
     padding: 10px
 }
 
-@media only screen and (max-height: 700px) {
-    header {
+@media only screen and (max-height: 400px) {
+    nav {
         position: relative;
-    }
-
-    .content {
-        margin-top: 0;
     }
 }
 
-@media only screen and (max-width: 890px) {
-    header {
+@media only screen and (max-width: 900px) {
+    nav {
         position: relative;
-    }
-
-    .content {
-        margin-top: 0;
     }
 
     nav li {
