@@ -113,6 +113,8 @@
 
 #calendar-head th {
     font-size: 5vw;
+    text-shadow: 2px 2px 2px var(--planzDarkBrown);
+    font-variant: small-caps;
 }
 
 #calendar-head th * {

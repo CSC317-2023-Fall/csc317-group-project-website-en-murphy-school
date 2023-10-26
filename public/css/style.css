@@ -6,9 +6,22 @@
     padding: 0;
 }
 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 body {
     background-color: var(--planzBeige);
     font-family: 'Roboto', sans-serif;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: var(--planzBeige);
 }
 
 h1 {
@@ -22,16 +35,44 @@ p {
 
 nav {
     list-style-type: none;
+    width: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: var(--planzLightBrown);
     font-size: x-large;
-    position: -webkit-sticky;
-    position: sticky;
     top: 0;
     font-weight: bold;
     vertical-align: center;
+}
+
+.content {
+    margin-top: 142px;
+    padding: 10px
+}
+
+@media only screen and (max-height: 500px) {
+    header {
+        position: relative;
+    }
+
+    .content {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 1140px) {
+    header {
+        position: relative;
+    }
+
+    .content {
+        margin-top: 0;
+    }
+
+    nav li {
+        width: 100%;
+    }
 }
 
 .logoDiv {
@@ -66,6 +107,7 @@ nav li {
 
 nav ul {
     list-style: none;
+    width: 100%;
 }
 
 nav li:last-child {
@@ -74,7 +116,7 @@ nav li:last-child {
 }
 
 nav li a {
-    display: flex;
+    display: block;
     color: var(--planzBeige);
     text-align: center;
     padding: 14px 50px;
@@ -87,8 +129,4 @@ nav li a:hover:not(.active) {
 
 .active {
     background-color: var(--planzOrange);
-}
-
-.content {
-    padding: 10px
 }
