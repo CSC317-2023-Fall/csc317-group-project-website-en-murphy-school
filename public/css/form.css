@@ -2,7 +2,6 @@
 
 .my-form * {
     box-sizing: border-box;
-    white-space: nowrap;
 }
 
 .my-form {
@@ -22,12 +21,16 @@
     padding-top: 10px;
 }
 
-.my-form label, .my-form input {
+.my-form label:not(.for-radio), .my-form input:not(input[type=radio]), .my-form textarea {
     display: inline-block;
     width: 30%;
     margin-right: 10%;
     padding: 3px;
     border-radius: 5px;
+}
+
+.my-form textarea {
+    display: inline;
 }
 
 .my-form label {
@@ -53,6 +56,7 @@
     border: 0;
     font-weight: bold;
     font-size: 18px;
+    min-width: fit-content;
 }
 
 .my-form input[type=submit]:hover, .my-form input[type=button]:hover {
