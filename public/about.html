@@ -15,7 +15,7 @@
 
 <body>
 <header>
-    <img alt="logo" id="logo" src="images/logo.png">
+    <li><a href="./index.html"><img alt="logo" id="logo" src="images/logo.png"></a></li>
 </header>
 
 <nav>
@@ -32,6 +32,7 @@
 
 
 <div class="content">
+    <stuff>
     <h1>
         <b><u>About Us</u></b>
     </h1>
@@ -94,7 +95,34 @@
         based on your feedback and experience. Join the PlanZ community today and experience
         the difference of peak organization tools.
     </div>
+    </stuff>
 </div>
 
 </body>
+
 </html>
+
+<script>
+
+function animate({timing, draw, duration}) {
+
+let start = performance.now();
+
+requestAnimationFrame(function animate(time) {
+  
+  let timeFraction = (time - start) / duration;
+  if (timeFraction > 1) timeFraction = 1;
+
+
+  let progress = timing(timeFraction)
+
+  draw(progress); 
+
+  if (timeFraction < 1) {
+    requestAnimationFrame(animate);
+  }
+
+});
+}
+
+</script>
