@@ -24,7 +24,7 @@ h1 {
 
 
 p {
-    color: var(--planzDarkBrown);
+    color: var(--plannerzDarkBrown);
 }
 
 nav {
@@ -33,7 +33,7 @@ nav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: var(--planzLightBrown);
+    background-color: var(--plannerzLightBrown);
     font-size: x-large;
     font-weight: bold;
     vertical-align: center;
@@ -74,7 +74,7 @@ nav {
 }
 
 .logo {
-    color: var(--planzLightBrown);
+    color: var(--plannerzLightBrown);
     alignment: center;
     vertical-align: center;
     font-weight: normal;
@@ -112,7 +112,7 @@ nav li a {
 }
 
 nav li a:hover:not(.active) {
-    background-color: var(--planzDarkBrown);
+    background-color: var(--plannerzDarkBrown);
 }
 
 .active {

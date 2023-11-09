@@ -74,7 +74,7 @@
 
 #month th, #month td {
     background-color: var(--planzLightOrange);
-    border: 0.2vw var(--planzLightBrown) solid;
+    border: 0.2vw var(--plannerzLightBrown) solid;
     width: calc(100% / 7);
     border-radius: 1vw;
     padding: 0.5vw;
@@ -151,7 +151,7 @@
 
 #calendar-head th {
     font-size: 5vw;
-    text-shadow: 2px 2px 2px var(--planzDarkBrown);
+    text-shadow: 2px 2px 2px var(--plannerzDarkBrown);
     font-variant: small-caps;
 }
 

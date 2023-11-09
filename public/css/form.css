@@ -7,7 +7,7 @@
 .my-form {
     display: block;
     background-color: var(--planzLightOrange);
-    border: var(--planzDarkBrown) 5px solid;
+    border: var(--plannerzDarkBrown) 5px solid;
     border-radius: 15px;
     padding: 10px;
 }
@@ -51,7 +51,7 @@
     width: 120px;
     height: 35px;
     border-radius: 15px;
-    background-color: var(--planzLightBrown);
+    background-color: var(--plannerzLightBrown);
     color: var(--planzBeige);
     outline: solid 2px;
     border: 0;
@@ -61,5 +61,5 @@
 
 .my-form input[type=submit]:hover, .my-form input[type=button]:hover {
     background-color: var(--planzBeige);
-    color: var(--planzLightBrown);
+    color: var(--plannerzLightBrown);
 }
