@@ -73,7 +73,7 @@
 }
 
 #month th, #month td {
-    background-color: var(--planzLightOrange);
+    background-color: var(--plannerzLightOrange);
     border: 0.2vw var(--plannerzLightBrown) solid;
     width: calc(100% / 7);
     border-radius: 1vw;
@@ -107,11 +107,11 @@
 }
 
 #month .active {
-    background-color: var(--planzOrange);
+    background-color: var(--plannerzOrange);
 }
 
 #month #days-of-week th {
-    background-color: var(--planzOrange);
+    background-color: var(--plannerzOrange);
 }
 
 .assignment div, .event div {
@@ -125,7 +125,7 @@
     border-radius: 0.8vw;
     z-index: 1;
     padding: 0.2vw;
-    background-color: var(--planzOffWhite);
+    background-color: var(--plannerzOffWhite);
     white-space: normal;
     width: 15vw;
 }
