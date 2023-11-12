@@ -11,6 +11,16 @@
     <link href="images/favicon_io/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
     <link href="images/favicon_io/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
     <link href="images/favicon_io/site.webmanifest" rel="manifest">
+
+    <script src="js/util.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) =>{
+            var cookie = readCookie("loggedIn")
+            if(cookie === ""){
+                window.location.href = "login.html"
+            }
+        })
+    </script>
 </head>
 
 <body>
@@ -31,8 +41,5 @@
         <li><a href="./settings.html">Settings</a></li>
     </ul>
 </nav>
-
-
-
 </body>
 </html>

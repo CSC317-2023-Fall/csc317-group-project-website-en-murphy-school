@@ -37,7 +37,7 @@
     <section class="my-form">
         <h2>Log In</h2>
 
-        <form action="index.html" id="login-form">
+        <form action="index.html" id="login-form" onsubmit="createCookieOnLogin()">
             <div class="form-group">
                 <label for="login-email">Email: </label>
                 <br/>
@@ -72,4 +72,12 @@
 </div>
 
 </body>
+
+<script>
+    //javascript function to create a cookie when login button is clicked
+    function createCookieOnLogin() {
+        document.cookie = "loggedIn=true; SameSite=Lax; path=/";
+    }
+</script>
+
 </html>
