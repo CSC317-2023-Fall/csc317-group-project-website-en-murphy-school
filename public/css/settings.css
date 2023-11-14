@@ -22,8 +22,12 @@
 
 .fakeimg {
     background-color: #aaa;
-    width: 100%;
-    padding: 20px;
+    height: 65px;
+    width:65px;
+    margin: 5px;
+}
+.fakeimg img{
+  object-fit: contain;
 }
 
 .tab {
@@ -53,7 +57,6 @@
   }
 
   .tabcontent {
-    float: left;
     padding: 0px 12px;
     border: 1px solid #ec893d;
     width: 70%;
