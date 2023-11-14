@@ -46,7 +46,9 @@
 <div class="content">
     <h1>Settings</h1>
     <br><br>
-    <h2 style="color: #5a310f;">User: MyUserName</h2>
+    <h2 style="color: #5a310f;">User: MyUserName</h2> <br>
+    
+    <div class="fakeimg" style="height: 60px;width:60px;margin: 5px;">User Image</div> <br>
 
     <div class="tab">
         <button class="tablinks" onclick="openSetting(event, 'Account')" id="defaultOpen">Account</button>
@@ -55,12 +57,11 @@
     </div>
     <div id="Account" class="tabcontent">
         <h2>Account Settings</h2>
-        <div class="fakeimg" style="height: 60px;width:60px;margin: 5px;">User Image</div>
         <h3>Hello MyUserName</h3>
         <form>
             <button>Change Email</button>
             <button>Change Password</button>
-            <button>Change Username</button>
+            <button>Change Name</button>
             <div style="text-align: center; padding: 20px;">
                 <button class="form" style="font-size: larger; background-color:sandybrown;" type="submit">Save Changes
                 </button>
@@ -70,7 +71,7 @@
     <div id="Preferences" class="tabcontent">
         <h2>Preferences</h2>
         <h4>Display Language</h4>
-        <form>
+        <form onsubmit="createCookie">
             <label for="website-lang"></label>
             <select data-placeholder="EN" id="website-lang">
                 <option value="EN">English</option>
@@ -130,6 +131,35 @@
         }
 
         document.getElementById("defaultOpen").click();
+
+        function createCookie(newCookie){
+
+            var expDate = new Date();
+
+            expDate.setMonth(expDate.getMonth() + 1);     // Adds 1 month ahead as the expiration date
+
+            var cookieVal = document.getElementById(newCookie).value;
+
+            // Retrieves cookie value from the node that was past to the function
+
+            document.cookie = newCookie + "=" + cookieVal + ";path=/;expires=" + expDate.toGMTString();     // Creates the cookie
+
+        }
+
+        function getACookie(name)
+        {
+            var cookieName = document.getElementById("getme").value;     // Get the value from the text box called getme
+            var allCookies = document.cookie.split(';');      // Splits all of the cookies and puts them in an array
+            var cookieData = "";
+            for (var i=0; i < allCookies.length; i++)     // Cycle through all of the cookies in the array
+            {
+            match = allCookies[i].replace(" ", "");     // Deletes whitespace that may proceed the cookie name
+            cookieData = match.substr((cookieName.length + 1));     // Assign the substring that follows the cookie name
+        }
+
+        }
+
+
     </script>
 </div>
 </body>
