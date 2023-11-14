@@ -11,6 +11,17 @@
     <link href="images/favicon_io/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
     <link href="images/favicon_io/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
     <link href="images/favicon_io/site.webmanifest" rel="manifest">
+
+    <!--Read a cookie named loggedIn and if it's null, redirect user to the login page-->
+    <script src="js/util.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            var cookie = readCookie("loggedIn")
+            if (cookie === "") {
+                window.location.href = "login.html"
+            }
+        })
+    </script>
 </head>
 
 <body>
@@ -36,35 +47,35 @@
     <h1>Settings</h1>
     <br><br>
     <h2 style="color: #5a310f;">User: MyUserName</h2>
-    
-<div class="tab">
-    <button class="tablinks" onclick="openSetting(event, 'Account')" id="defaultOpen">Account</button>
-    <button class="tablinks" onclick="openSetting(event, 'Preferences')" >Preferences</button>
-    <button class="tablinks" onclick="openSetting(event, 'Notifications')" >Notifications</button>
-</div>
-<div id="Account" class="tabcontent">
-    <h2>Account Settings</h2>
-    <div class="fakeimg" style="height: 60px;width:60px;margin: 5px;">User Image</div>
-            <h3>Hello MyUserName</h3>
-            <form>
-            <button >Change Email</button>
-            <button >Change Password</button>
-            <button >Change Username</button>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openSetting(event, 'Account')" id="defaultOpen">Account</button>
+        <button class="tablinks" onclick="openSetting(event, 'Preferences')">Preferences</button>
+        <button class="tablinks" onclick="openSetting(event, 'Notifications')">Notifications</button>
+    </div>
+    <div id="Account" class="tabcontent">
+        <h2>Account Settings</h2>
+        <div class="fakeimg" style="height: 60px;width:60px;margin: 5px;">User Image</div>
+        <h3>Hello MyUserName</h3>
+        <form>
+            <button>Change Email</button>
+            <button>Change Password</button>
+            <button>Change Username</button>
             <div style="text-align: center; padding: 20px;">
                 <button class="form" style="font-size: larger; background-color:sandybrown;" type="submit">Save Changes
                 </button>
             </div>
-            </form>
-</div>
-<div id="Preferences" class="tabcontent">
-    <h2>Preferences</h2>
-    <h4>Display Language</h4>
-            <form>
-                <label for="website-lang"></label>
-                <select data-placeholder="EN" id="website-lang">
-                    <option value="EN">English</option>
-                    <option value="ES">Spanish</option>
-                </select>
+        </form>
+    </div>
+    <div id="Preferences" class="tabcontent">
+        <h2>Preferences</h2>
+        <h4>Display Language</h4>
+        <form>
+            <label for="website-lang"></label>
+            <select data-placeholder="EN" id="website-lang">
+                <option value="EN">English</option>
+                <option value="ES">Spanish</option>
+            </select>
             <h4>Theme</h4>
             <label for="theme">
                 <select data-placeholder="light" id="theme">
@@ -76,49 +87,50 @@
                 <button class="form" style="font-size: larger; background-color:sandybrown;" type="submit">Save Changes
                 </button>
             </div>
-            </form>
-</div>
-<div id="Notifications" class="tabcontent">
-    <h2>Notifications</h2>
-    <h4>Notification Sound</h4>
-            <form>
-                <label for="notif-sound"></label>
-                <select data-placeholder="DefaultSound" id="notif-sound">
-                    <option value="DefaultSound">Bell</option>
-                    <option value="Saxophone">Saxophone</option>
-                    <option value="Shout">Shout</option>
-                    <option value="Magical">Magical</option>
-                    <option value="custom">Custom</option>
-                </select>
+        </form>
+    </div>
+    <div id="Notifications" class="tabcontent">
+        <h2>Notifications</h2>
+        <h4>Notification Sound</h4>
+        <form>
+            <label for="notif-sound"></label>
+            <select data-placeholder="DefaultSound" id="notif-sound">
+                <option value="DefaultSound">Bell</option>
+                <option value="Saxophone">Saxophone</option>
+                <option value="Shout">Shout</option>
+                <option value="Magical">Magical</option>
+                <option value="custom">Custom</option>
+            </select>
             <p>To use custom sound an MP3 file must be uploaded.</p>
             <h4>Upload Custom Sound</h4>
-                <label for="myfile">Select MP3 File: </label>
-                <input id="myfile" name="myfile" type="file"><br><br>
-                <input type="submit" value="Upload Sound">
-                <div style="text-align: center; padding: 20px;">
-                    <button class="form" style="font-size: larger; background-color:sandybrown;" onclick="submitCookie">Save Changes
-                    </button>
-                </div>
-            </form>
+            <label for="myfile">Select MP3 File: </label>
+            <input id="myfile" name="myfile" type="file"><br><br>
+            <input type="submit" value="Upload Sound">
+            <div style="text-align: center; padding: 20px;">
+                <button class="form" style="font-size: larger; background-color:sandybrown;" onclick="submitCookie">Save
+                    Changes
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function openSetting(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += "active";
+        }
+
+        document.getElementById("defaultOpen").click();
+    </script>
 </div>
-
-<script>
-    function openSetting(evt, tabName){
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for(i=0; i < tabcontent.length; i++){
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for(i=0; i < tablinks.length; i++){
-            tablinks[i].className = tablinks[i].className.replace("active", "");
-        }
-        document.getElementById(tabName).style.display="block";
-        evt.currentTarget.className += "active";
-    }
-
-    document.getElementById("defaultOpen").click();
-</script>
-
 </body>
 </html>

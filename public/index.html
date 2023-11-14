@@ -14,9 +14,9 @@
 
     <script src="js/util.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () =>{
+        document.addEventListener("DOMContentLoaded", () => {
             var cookie = readCookie("loggedIn")
-            if(cookie === ""){
+            if (cookie === "") {
                 window.location.href = "login.html"
             }
         })
@@ -41,5 +41,142 @@
         <li><a href="./settings.html">Settings</a></li>
     </ul>
 </nav>
+
+<div class="wrapper">
+    <div class="one" style="padding-left: 20px;">
+        <br>
+        <div style="display: flex">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvb2stb3Blbi1jaGVjayI+PHBhdGggZD0iTTggM0gydjE1aDdjMS43IDAgMyAxLjMgMyAzVjdjMC0yLjItMS44LTQtNC00WiIvPjxwYXRoIGQ9Im0xNiAxMiAyIDIgNC00Ii8+PHBhdGggZD0iTTIyIDZWM2gtNmMtMi4yIDAtNCAxLjgtNCA0djE0YzAtMS43IDEuMy0zIDMtM2g3di0yLjMiLz48L3N2Zz4="
+                 alt="Quick access book icon" style="width: 40px">
+            <h1>&nbsp;Quick Access</h1>
+        </div>
+        <br>
+        <ul style="list-style-type: none">
+            <li>
+                &emsp;
+                <a href="https://open.spotify.com/" style="position: relative; bottom: 7px">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="spotify icon" width="64px">
+                </a>
+
+                &emsp;
+                <a href="https://www.reddit.com/" style="position: relative; bottom: 7px">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Bootstrap_reddit.svg" alt="reddit icon" width="64px">
+                </a>
+
+                &emsp;
+                <a href="https://www.youtube.com/" style="position: relative; bottom: 15px">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
+                         alt="youtube icon" width="64px">
+                </a>
+
+                &emsp;
+                <a href="https://www.twitter.com/" style="position: relative; bottom: 7px">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="twitter icon" width="64px">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="two" style="padding-left: 30px">
+        <div style="display: flex">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWxpc3QtdG9kbyI+PHJlY3QgeD0iMyIgeT0iNSIgd2lkdGg9IjYiIGhlaWdodD0iNiIgcng9IjEiLz48cGF0aCBkPSJtMyAxNyAyIDIgNC00Ii8+PHBhdGggZD0iTTEzIDZoOCIvPjxwYXRoIGQ9Ik0xMyAxMmg4Ii8+PHBhdGggZD0iTTEzIDE4aDgiLz48L3N2Zz4="
+                 alt="todo list icon" width="40px">
+            <h1>&nbsp;To-Do List</h1>
+        </div>
+        <br>
+        <ul style="margin: 0; padding: 0; list-style-type: none">
+            <li class="listItem" onclick="toggleStrike(this)" style="margin: 10px 0">
+                <div style="display: flex">
+                    <p style="outline: 2px solid red; border-radius: 15px; width: 73px; background-color: red; color: white">
+                        &nbsp;Deferred </p>
+                    <p style="color: black">&nbsp; Watch recording of first presentation </p>
+                </div>
+            </li>
+            <li class="listItem" onclick="toggleStrike(this)" style="margin: 10px 0">
+                <div style="display: flex">
+                    <p style="outline: 2px solid green; border-radius: 19px; width: 19px; background-color: green; color: white">
+                        &nbsp;!!</p>
+                    <p style="color: black">&nbsp; Nap during class and don't get caught </p>
+                </div>
+            </li>
+            <li class="listItem" onclick="toggleStrike(this)" style="margin: 10px 0">
+                <div style="display: flex">
+                    <p style="outline: 2px solid red; border-radius: 15px; width: 111px; color: black"> &nbsp;Due
+                        tomorrow </p>
+                    <p style="color: black">&nbsp; Start working on research paper 3 </p>
+                </div>
+            </li>
+            <li class="listItem" onclick="toggleStrike(this)" style="margin: 10px 0">Level up Furina</li>
+        </ul>
+        <script>
+            function toggleStrike(element) {
+                if (element.style.textDecoration === "line-through") {
+                    element.style.textDecoration = "none"
+                } else {
+                    element.style.textDecoration = "line-through"
+                }
+            }
+        </script>
+    </div>
+
+    <div class="three">
+        <br>
+        <div style="display: flex">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNhbGVuZGFyLWNsb2NrIj48cGF0aCBkPSJNMjEgNy41VjZhMiAyIDAgMCAwLTItMkg1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgzLjUiLz48cGF0aCBkPSJNMTYgMnY0Ii8+PHBhdGggZD0iTTggMnY0Ii8+PHBhdGggZD0iTTMgMTBoNSIvPjxwYXRoIGQ9Ik0xNy41IDE3LjUgMTYgMTYuMjVWMTQiLz48cGF0aCBkPSJNMjIgMTZhNiA2IDAgMSAxLTEyIDAgNiA2IDAgMCAxIDEyIDBaIi8+PC9zdmc+"
+                 alt="calendar icon" width="40px">
+            <h1 style="padding-top: 5px">&nbsp;Schedule</h1>
+        </div>
+        <br>
+        <ul>
+            <li style="list-style-type: none">
+                <h3 style="background-color: #994900; color: white; font-size: 35px; padding-bottom: 5px">
+                    &nbsp;Today</h3>
+                <i style="color: #3b3b3b;">No upcoming events</i>
+                <br>
+                <br>
+                <h4 style="outline: 2px solid #994900">&nbsp;Wed / 15</h4>
+                <i style="color: #3b3b3b;">Nothing scheduled</i>😪
+                <br>
+                <br>
+                <h4 style="outline: 2px solid #994900">&nbsp;Thu / 16</h4>
+                <i style="color: #3b3b3b;">Nothing scheduled</i>😪
+                <br>
+                <br>
+                <h4 style="outline: 2px solid #994900">&nbsp;Fri / 17</h4>
+                <br>
+                <div class="oneSpecificEvent"
+                     style="display: flex; outline: 2px solid #994900; border-radius: 20px; background-color: #994900">
+                    <img src="images/Material%20Icons/schedule_FILL0_wght400_GRAD0_opsz24.svg"
+                         style="filter: invert(); padding-left: 10px" alt="Clock icon">
+                    <div style="display: flex; height: 50px">
+                        <p style="color: white; padding-left: 10px; font-size: 15px; line-height: 3em">&nbsp;2:00 am to 3:15 pm&nbsp;</p>
+                        <p style="color: black; padding-left: 20px; outline: 2px solid #994900; border-radius: 20px; background-color: rgb(253,197,157); line-height: 3em; padding-right: 5px; font-size: 15px">
+                            Important Event in Which I Will be Doing Things</p>
+                    </div>
+                </div>
+                <br>
+                <h4 style="outline: 2px solid #994900">&nbsp;Sat / 18</h4>
+                <i style="color: #3b3b3b;">Nothing scheduled</i>😪
+                <br>
+                <br>
+                <h4 style="outline: 2px solid #994900">&nbsp;Sun / 19</h4>
+                <i style="color: #3b3b3b;">Nothing scheduled</i>😪
+            </li>
+        </ul>
+    </div>
+
+    <div class="four" style="padding-left: 30px">
+        <br>
+        <div style="display: flex">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNjcm9sbC10ZXh0Ij48cGF0aCBkPSJNOCAyMWgxMmEyIDIgMCAwIDAgMi0ydi0ySDEwdjJhMiAyIDAgMSAxLTQgMFY1YTIgMiAwIDEgMC00IDB2M2g0Ii8+PHBhdGggZD0iTTE5IDE3VjVhMiAyIDAgMCAwLTItMkg0Ii8+PHBhdGggZD0iTTE1IDhoLTUiLz48cGF0aCBkPSJNMTUgMTJoLTUiLz48L3N2Zz4="
+                 alt="notepad icon" width="40px">
+            <h1>&nbsp;Notepad</h1>
+        </div>
+        <br>
+        <label for="notes-text-area"></label>
+        <textarea name="Notes" id="notes-text-area" cols="50" rows="10"
+                  style="background-color: rgba(89,50,10,0.25); border-radius: 20px; resize: none; font-size: 20px; color: rgb(40,23,5)"></textarea>
+    </div>
+</div>
 </body>
 </html>

@@ -118,3 +118,49 @@ h2 {
 .container {
     padding: 2px 16px;
 }
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+.one {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    padding-left: 20px;
+}
+.two {
+    grid-column: 2 / 2;
+    grid-row: 1 / 3;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.three {
+    grid-column: 1;
+    grid-row: 2 / 5;
+    padding-left: 20px;
+}
+.four {
+    grid-column: 2/2;
+    grid-row: 3/5;
+}
+.six {
+    grid-column: 3;
+    grid-row: 4;
+    background-color: white;
+}
+
+.listItem, .checkedListItem{
+    cursor: pointer;
+    transition: 0.2s;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.listItem:hover, .checkedListItem:hover{
+    background-color: #cec1b5;
+}
