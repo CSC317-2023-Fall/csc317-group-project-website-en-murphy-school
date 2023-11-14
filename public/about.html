@@ -23,7 +23,6 @@
         <li><a href="./index.html">Home</a></li>
         <li><a class="active" href="./about.html">About</a></li>
         <li><a href="calendar.html">Calendar</a></li>
-        <li><a href="./notifications.html">Notifications</a></li>
         <li><a href="login.html">Login</a></li>
         <li><a href="./settings.html">Settings</a></li>
     </ul>
@@ -31,14 +30,31 @@
 
 
 
-<div class="content">
-    <stuff>
-    <h1>
-        <b><u>About Us</u></b>
-    </h1>
 
+<div class="content">
+
+    
+
+    <stuff>
+
+        <div class="lineUp-1">
+        <h1>
+            About Us
+        </h1></div>
+
+
+        <div class="lineUp-2">
     <h2>
-        Welcome to PlannerZ: Your Ultimate Task Organization Hub
+        <div class="waviy">
+            <span style="--i:1">Welcome</span>
+            <span style="--i:2">to</span>
+            <span style="--i:3">PlannerZ:</span>
+            <span style="--i:4">Your</span>
+            <span style="--i:5">Ultimate</span>
+            <span style="--i:6">Task</span>
+            <span style="--i:7">Organization</span>
+            <span style="--i:8">Hub</span>
+            </div>
     </h2>
 
     <h3>
@@ -52,11 +68,18 @@
         Our mission is to help simplify your workload by providing a centralized
         platform where you can effectively manage and manipulate your tasks in one place
     </div>
+    </div>
     <br><br>
 
-    <h2>
-        Who We Are
-    </h2>
+
+    <div class="lineUp-3">
+        <h2>
+            <div class="waviy">
+                <span style="--i:4">Who</span>
+                <span style="--i:5">We</span>
+                <span style="--i:6">Are</span>
+                </div>
+        </h2>
 
     <div class="textDiv">
         Akin to our group name, we found another thing in common, frustration with online
@@ -65,11 +88,18 @@
         when we came up with the idea of PlannerZ - a solution designed to bring clarity
         and efficiency to your task management.
     </div>
+    </div>
     <br><br>
 
-    <h2>
-        What Sets Us Apart
-    </h2>
+    <div class="lineUp-4">
+        <h2>
+            <div class="waviy">
+                <span style="--i:3">What</span>
+                <span style="--i:4">Sets</span>
+                <span style="--i:5">Us:</span>
+                <span style="--i:6">Apart</span>
+                </div>
+        </h2>
 
     <div class="textDiv">
         <i>User-Centric Design:</i> We understand that everyone has a unique way of
@@ -84,45 +114,29 @@
         customize your assignments and more. Watch as PlannerZ adjusts to keep you on top of your
         game. Whether you are a student with deadlines, or a professional with projects, we've got you covered!
     </div>
+    </div>
     <br><br>
 
-    <h2>
-        Our Commitment to You
-    </h2>
+    <div class="lineUp-3">
+        <h2>
+            <div class="waviy">
+                <span style="--i:3">Our</span>
+                <span style="--i:4">commitment</span>
+                <span style="--i:5">to</span>
+                <span style="--i:6">You</span>
+                </div>
+        </h2>
 
     <div class="textDiv">
         Your productivity is our priority. We are committed to continuously enhancing PlannerZ
         based on your feedback and experience. Join the PlannerZ community today and experience
         the difference of peak organization tools.
     </div>
+    </div>
     </stuff>
 </div>
 
+
+
 </body>
-
 </html>
-
-<script>
-
-function animate({timing, draw, duration}) {
-
-let start = performance.now();
-
-requestAnimationFrame(function animate(time) {
-  
-  let timeFraction = (time - start) / duration;
-  if (timeFraction > 1) timeFraction = 1;
-
-
-  let progress = timing(timeFraction)
-
-  draw(progress); 
-
-  if (timeFraction < 1) {
-    requestAnimationFrame(animate);
-  }
-
-});
-}
-
-</script>
