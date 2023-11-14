@@ -64,11 +64,11 @@
 }
 
 #month tr {
-    height: 15%;
+    height: 17vh;
 }
 
 #month #days-of-week {
-    height: 4%;
+    height: 6vh;
     vertical-align: center;
 }
 
@@ -149,7 +149,7 @@
     vertical-align: text-bottom;
 }
 
-#calendar-head th {
+#calendar-head h2 {
     font-size: 5vw;
     text-shadow: 2px 2px 2px var(--plannerzDarkBrown);
     font-variant: small-caps;
@@ -176,4 +176,10 @@
 #calendar-head .forward-arrow {
     float: right;
     height: 4vw;
+}
+
+#calendar-head button {
+    background-color: rgba(0%, 0%, 0%, 0);
+    border-style: none;
+    cursor: pointer;
 }
