@@ -16,9 +16,9 @@
     <!--Read a cookie named loggedIn and if it's null, redirect user to the login page-->
     <script src="js/util.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () =>{
-            var cookie = readCookie("loggedIn")
-            if(cookie === ""){
+        document.addEventListener("DOMContentLoaded", () => {
+            let cookie = readCookie("loggedIn")
+            if (cookie === "") {
                 window.location.href = "login.html"
             }
         })
@@ -46,18 +46,20 @@
 
 
 <div class="content">
-    <stuff>
+    <div class="stuff">
         <section id="calendar">
             <table id="month">
                 <tr id="calendar-head">
                     <th colspan="7">
-                        <button class="backward-arrow" onclick="backwardMonth()"><img src="images/arrow.png" alt="go forward a month"></button>
+                        <button class="backward-arrow" onclick="backwardMonth()"><img alt="go forward a month"
+                                                                                      src="images/arrow.png"></button>
                         <div id="month-head">
                             <h2 id="month-display"></h2>
                             <br/>
                             <h3 id="year-display"></h3>
                         </div>
-                        <button class="forward-arrow" onclick="forwardMonth()"><img src="images/arrow.png" alt="go back a month"></button>
+                        <button class="forward-arrow" onclick="forwardMonth()"><img alt="go back a month"
+                                                                                    src="images/arrow.png"></button>
                     </th>
                 </tr>
                 <tr id="days-of-week">
@@ -139,15 +141,15 @@
                     <div class="form-group">
                         <label for="event-name">Event Name</label>
                         <br/>
-                        <input type="text" id="event-name" name="event-name" placeholder="Event Name" required>
+                        <input id="event-name" name="event-name" placeholder="Event Name" required type="text">
                     </div>
 
                     <div class="form-group">
                         <label for="event-start-date">Start Date</label>
                         <label for="event-end-date">End Date</label>
                         <br/>
-                        <input type="datetime-local" id="event-start-date" name="event-start-date" required>
-                        <input type="datetime-local" id="event-end-date" name="event-end-date" required>
+                        <input id="event-start-date" name="event-start-date" required type="datetime-local">
+                        <input id="event-end-date" name="event-end-date" required type="datetime-local">
                     </div>
 
                     <div class="form-group">
@@ -163,7 +165,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" id="create-event" name="create-event" value="Create Event">
+                        <input id="create-event" name="create-event" type="submit" value="Create Event">
                     </div>
                 </form>
             </section>
@@ -173,11 +175,12 @@
                     New Assignment
                 </h2>
 
-                <form name="new-assignment" action="calendar.html" id="new-assignment" onsubmit="saveAssignment()">
+                <form action="calendar.html" id="new-assignment" name="new-assignment" onsubmit="saveAssignment()">
                     <div class="form-group">
                         <label for="assignment-name">Event Name</label>
                         <br/>
-                        <input type="text" id="assignment-name" name="assignment-name" placeholder="Event Name" required>
+                        <input id="assignment-name" name="assignment-name" placeholder="Event Name" required
+                               type="text">
                     </div>
 
                     <div class="form-group my-radio" id="assignment-priority">
@@ -186,27 +189,26 @@
                         <br/>
 
                         <div class="priority-radio">
-                            <label for="none" class="for-radio"><img src="images/priority/none.png" alt="None"></label>
+                            <label class="for-radio" for="none"><img alt="None" src="images/priority/none.png"></label>
                             <br/>
-                            <input type="radio" id="none" name="assignment-priority" checked required>
+                            <input checked id="none" name="assignment-priority" required type="radio">
                         </div>
                         <div class="priority-radio">
-                            <label for="low" class="for-radio"><img src="images/priority/low.png" alt="Low"></label>
+                            <label class="for-radio" for="low"><img alt="Low" src="images/priority/low.png"></label>
                             <br/>
-                            <input type="radio" id="low" name="assignment-priority">
+                            <input id="low" name="assignment-priority" type="radio">
                         </div>
                         <div class="priority-radio">
-                            <label for="medium" class="for-radio"><img src="images/priority/medium.png" alt="Medium"></label>
+                            <label class="for-radio" for="medium"><img alt="Medium"
+                                                                       src="images/priority/medium.png"></label>
                             <br/>
-                            <input type="radio" id="medium" name="assignment-priority">
+                            <input id="medium" name="assignment-priority" type="radio">
                         </div>
                         <div class="priority-radio">
-                            <label for="high" class="for-radio"><img src="images/priority/high.png" alt="High"></label>
+                            <label class="for-radio" for="high"><img alt="High" src="images/priority/high.png"></label>
                             <br/>
-                            <input type="radio" id="high" name="assignment-priority">
+                            <input id="high" name="assignment-priority" type="radio">
                         </div>
-
-
 
 
                     </div>
@@ -214,7 +216,7 @@
                     <div class="form-group">
                         <label for="assignment-date">Start Date</label>
                         <br/>
-                        <input type="datetime-local" id="assignment-date" name="assignment-date" required>
+                        <input id="assignment-date" name="assignment-date" required type="datetime-local">
                     </div>
 
                     <div class="form-group">
@@ -224,12 +226,12 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" id="create-assignment" name="create-assignment" value="Create Assignment">
+                        <input id="create-assignment" name="create-assignment" type="submit" value="Create Assignment">
                     </div>
                 </form>
             </section>
         </div>
-    </stuff>
+    </div>
 </div>
 
 <script src="js/calendar.js"></script>

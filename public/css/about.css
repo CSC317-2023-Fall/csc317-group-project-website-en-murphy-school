@@ -31,11 +31,12 @@ h3 {
     font-size: 30px;
 }
 
-stuff {
+.stuff {
     animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
+
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -44,119 +45,125 @@ stuff {
     100% {
         opacity: 1;
     }
-    
+
 }
 
 
-.lineUp-1{
+.lineUp-1 {
     animation: 3000ms anim-lineUp ease-out;
-  }
-  @keyframes anim-lineUp {
+}
+
+@keyframes anim-lineUp {
     0% {
-      opacity: 0;
-      transform: translateY(80%);
+        opacity: 0;
+        transform: translateY(80%);
     }
     20% {
-      opacity: 0;
+        opacity: 0;
     }
     50% {
-      opacity: 1;
-      transform: translateY(0%);
+        opacity: 1;
+        transform: translateY(0%);
     }
     100% {
-      opacity: 1;
-      transform: translateY(0%);
+        opacity: 1;
+        transform: translateY(0%);
     }
-  }
+}
 
-  .lineUp-2{
+.lineUp-2 {
     animation: 5000ms anim-lineUp ease-out;
-  }
-  @keyframes anim-lineUp {
+}
+
+@keyframes anim-lineUp {
     0% {
-      opacity: 0;
-      transform: translateY(80%);
+        opacity: 0;
+        transform: translateY(80%);
     }
     20% {
-      opacity: 0;
+        opacity: 0;
     }
     50% {
-      opacity: 1;
-      transform: translateY(0%);
+        opacity: 1;
+        transform: translateY(0%);
     }
     100% {
-      opacity: 1;
-      transform: translateY(0%);
+        opacity: 1;
+        transform: translateY(0%);
     }
-  }
+}
 
-  .lineUp-3{
+.lineUp-3 {
     animation: 6000ms anim-lineUp ease-out;
-  }
-  @keyframes anim-lineUp {
+}
+
+@keyframes anim-lineUp {
     0% {
-      opacity: 0;
-      transform: translateY(80%);
+        opacity: 0;
+        transform: translateY(80%);
     }
     20% {
-      opacity: 0;
+        opacity: 0;
     }
     50% {
-      opacity: 1;
-      transform: translateY(0%);
+        opacity: 1;
+        transform: translateY(0%);
     }
     100% {
-      opacity: 1;
-      transform: translateY(0%);
+        opacity: 1;
+        transform: translateY(0%);
     }
-  }
+}
 
-  .lineUp-4{
+.lineUp-4 {
     animation: 6500ms anim-lineUp ease-out;
-  }
-  @keyframes anim-lineUp {
+}
+
+@keyframes anim-lineUp {
     0% {
-      opacity: 0;
-      transform: translateY(80%);
+        opacity: 0;
+        transform: translateY(80%);
     }
     20% {
-      opacity: 0;
+        opacity: 0;
     }
     50% {
-      opacity: 1;
-      transform: translateY(0%);
+        opacity: 1;
+        transform: translateY(0%);
     }
     100% {
-      opacity: 1;
-      transform: translateY(0%);
+        opacity: 1;
+        transform: translateY(0%);
     }
-  }
+}
 
-  .lineUp-5{
+.lineUp-5 {
     animation: 6750ms anim-lineUp ease-out;
-  }
-  @keyframes anim-lineUp {
+}
+
+@keyframes anim-lineUp {
     0% {
-      opacity: 0;
-      transform: translateY(80%);
+        opacity: 0;
+        transform: translateY(80%);
     }
     20% {
-      opacity: 0;
+        opacity: 0;
     }
     50% {
-      opacity: 1;
-      transform: translateY(0%);
+        opacity: 1;
+        transform: translateY(0%);
     }
     100% {
-      opacity: 1;
-      transform: translateY(0%);
+        opacity: 1;
+        transform: translateY(0%);
     }
-  }
+}
 
-  .waviy {
+.waviy {
     position: relative;
-  }
-  .waviy span {
+}
+
+.waviy span {
     position: relative;
     display: inline-block;
     color: var(--plannerzLightBrown);
@@ -165,9 +172,10 @@ stuff {
     text-decoration: overline;
     animation: flip 6s infinite;
     animation-delay: calc(.4s * var(--i))
-  }
-  @keyframes flip {
-    0%,80% {
-      transform: rotateY(360deg) 
+}
+
+@keyframes flip {
+    0%, 80% {
+        transform: rotateY(360deg)
     }
-  }
+}

@@ -41,10 +41,10 @@ function displayCalendar(aDate) {
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
     // send it
-    var doc = {"month": monthCurrent.getFullYear().toString() + "-" + (monthCurrent.getMonth() + 1).toString().padStart(2, "0")};
+    let doc = {"month": monthCurrent.getFullYear().toString() + "-" + (monthCurrent.getMonth() + 1).toString().padStart(2, "0")};
     //alert (JSON.stringify(doc));
     // This will only return when the response comes back from the server.
-    xhr.send (JSON.stringify(doc));
+    xhr.send(JSON.stringify(doc));
 
     // Rerender the calendar once you have the right events.
     renderCalendar(monthCurrent, monthFinal, xhr.response);
@@ -141,8 +141,8 @@ function saveAssignment() {
     let assignmentRadio = document.getElementsByName("assignment-priority");
     let radioValue = 0;
 
-    for(let i = 0; i < assignmentRadio.length; i++) {
-        if(assignmentRadio[i].checked) {
+    for (let i = 0; i < assignmentRadio.length; i++) {
+        if (assignmentRadio[i].checked) {
             radioValue = i;
         }
     }

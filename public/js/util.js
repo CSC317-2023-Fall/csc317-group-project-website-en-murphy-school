@@ -1,10 +1,10 @@
 // read and return the value of a cookie (cookie name, aka "key", is provided as parameter. It's value gets returned)
 function readCookie(cname) {
-    var name = cname + "=";
-    var decoded_cookie = decodeURIComponent(document.cookie);
-    var carr = decoded_cookie.split(';');
-    for (var i = 0; i < carr.length; i++) {
-        var c = carr[i];
+    let name = cname + "=";
+    let decoded_cookie = decodeURIComponent(document.cookie);
+    let carr = decoded_cookie.split(';');
+    for (let i = 0; i < carr.length; i++) {
+        let c = carr[i];
         while (c.charAt(0) === ' ') {
             c = c.substring(1);
         }

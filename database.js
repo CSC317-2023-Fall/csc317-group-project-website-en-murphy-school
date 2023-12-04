@@ -18,12 +18,12 @@ connection.connect(function (e) {
     console.log('\nConnected to the MySQL server...\n');
 });
 
-connection.on('error', function(e) {
+connection.on('error', function (e) {
     console.log(e);
 });
 
 
-function saveAssignment (event, user) {
+function saveAssignment(event, user) {
     try {
         let eventQuery = "insert into assignments (user, name, priority, due_date, description) values (?, ?, ?, ?, ?);";
         connection.query(eventQuery, [user, event["assignment-name"], event["assignment-priority"], event["assignment-date"], event["assignment-description"]]);
@@ -32,7 +32,7 @@ function saveAssignment (event, user) {
     }
 }
 
-function saveEvent (event, user) {
+function saveEvent(event, user) {
     try {
         let eventQuery = "insert into events (user, name, start, end, location, description) values (?, ?, ?, ?, ?, ?);";
         connection.query(eventQuery, [user, event["event-name"], event["event-start-date"], event["event-end-date"], event["event-location"], event["event-description"]]);
@@ -41,12 +41,12 @@ function saveEvent (event, user) {
     }
 }
 
-function getEvents (req, res) {
+function getEvents(req, res) {
     let query = "select * from (select 'event' as type, name, start from events union all select 'assignment', name, due_date from assignments) all_events where start like ? order by start";
     try {
         let month = req.body.month + "%";
         //let month = "%";
-        console.log ("Retrieving events for " + month);
+        console.log("Retrieving events for " + month);
         connection.query(query, [month], function (e, rows) {
             // Callback function when the database call completes
             if (e) {
@@ -64,7 +64,7 @@ function getEvents (req, res) {
             for (let row of rows) {
                 console.log(row['type'], "|", row['name'], "|", row['start']);
             }
-            console.log (JSON.stringify(rows));
+            console.log(JSON.stringify(rows));
             // Return the AJAX response to the get event call
             res.send(rows);
         });
