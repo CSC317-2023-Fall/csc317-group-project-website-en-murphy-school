@@ -3,7 +3,7 @@
  * TODO: Prevent forms from overloading
  */
 
-@import "plannerz-colors.css";
+@import "plannerz-colors-light.css";
 
 #calendar {
     width: 90%;
@@ -197,5 +197,25 @@ stuff {
     100% {
         opacity: 1;
     }
-    
+
+}
+
+.priority-radio {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+#calendar-loading {
+    position: absolute;
+    left: 50%;
+    top: calc(140px + 40vw);
+    transform: translate(-50%, -50%);
+    background-color: var(--plannerzOffWhite);
+    border: black solid 0.3vw;
+    border-radius: 10px;
+}
+
+#calendar-loading p {
+    font-size: 2vw;
+    padding: 0.1vw 0.4vw;
 }

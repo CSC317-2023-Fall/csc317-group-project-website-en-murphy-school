@@ -1,33 +1,78 @@
+let mysql = require('mysql');
+let random = "Hello World";
 
-var message = 'CSC-317 startup template\n'
-    + 'This template uses nodeJS, express, and express.static\n';
-
-var port = 3000;
-var path = require('path');
-var express = require('express');
-var db = require('./database.js');
-var app = express();
-const fs = require('fs');
-const bodyParser = require('body-parser');
-
-var StaticDirectory = path.join(__dirname, 'public');
-
-
-app.use(bodyParser.json({ extended: true }));
-
-app.post("/saveEvent", (req, res) => {
-    console.log(req.body);
-    res.send('POST request to the homepage');
-
-    db.saveEvent(req.body);
+// Setup database connection parameter
+var connection = mysql.createConnection({
+    host: 'localhost', user: 'student', password: 'student', database: 'plannerzdb'
 });
 
-app.use(express.static(StaticDirectory));
-// Set up a route for the home page
 
-app.listen(port, () => {
-    console.log(`Listening on http://localhost:${port}/`);
+// Connect with the database
+connection.connect(function (e) {
+    if (e) {
+        // Show error message on failure
+        return console.error('Error: ' + e.message);
+    }
+
+
+    // Show success message if connected
+    console.log('\nConnected to the MySQL server...\n');
 });
 
-console.log(message);
+connection.on('error', function(e) {
+    console.log(e);
+});
 
+
+function saveAssignment (event, user) {
+    try {
+        let eventQuery = "insert into assignments (user, name, priority, due_date, description) values (?, ?, ?, ?, ?);";
+        connection.query(eventQuery, [user, event["assignment-name"], event["assignment-priority"], event["assignment-date"], event["assignment-description"]]);
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+function saveEvent (event, user) {
+    try {
+        let eventQuery = "insert into events (user, name, start, end, location, description) values (?, ?, ?, ?, ?, ?);";
+        connection.query(eventQuery, [user, event["event-name"], event["event-start-date"], event["event-end-date"], event["event-location"], event["event-description"]]);
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+function getEvents (req, res) {
+    var query = "select * from (select 'event' as type, name, start from events union all select 'assignment', name, due_date from assignments) all_events where start like ? order by start";
+    try {
+        let month = req.body.month + "%";
+        //let month = "%";
+        console.log ("Retrieving events for " + month);
+        connection.query(query, [month], function (e, rows) {
+            // Callback function when the database call completes
+            if (e) {
+
+                // Show the error message if we have one
+                console.log("Error occurred in executing the query.");
+                return;
+            }
+
+
+            /* Display the formatted data retrieved from 'book' table
+            using for loop */
+            console.log("The records of calendar events:\n");
+            console.log("Type|Name|Start");
+            for (let row of rows) {
+                console.log(row['type'], "|", row['name'], "|", row['start']);
+            }
+            console.log (JSON.stringify(rows));
+            // Return the AJAX response to the get event call
+            res.send(rows);
+        });
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+// These are the functions that are visible to the instantiation of this module
+module.exports = {"saveEvent": saveEvent, "saveAssignment": saveAssignment, "getEvents": getEvents};

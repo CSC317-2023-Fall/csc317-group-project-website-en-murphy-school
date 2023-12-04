@@ -1,9 +1,9 @@
-@import "plannerz-colors.css";
+@import "plannerz-colors-light.css";
 
 .month {
     padding: 70px 25px;
     width: 100%;
-    background: #1abc9c;
+    background: var(--plannerzTeal);
     text-align: center;
 }
 
@@ -32,19 +32,19 @@
 .weekdays {
     margin: 0;
     padding: 10px 0;
-    background-color: #994900;
+    background-color: var(--plannerzLightBrown);
 }
 
 .weekdays li {
     display: inline-block;
     width: 13.6%;
-    color: #f2e3d6;
+    color: var(--plannerzBeige);
     text-align: center;
 }
 
 .days {
     padding: 10px 0;
-    background: #d17200;
+    background: var(--plannerzLightOrange);
     margin: 0;
 }
 
@@ -55,13 +55,13 @@
     text-align: center;
     margin-bottom: 5px;
     font-size: 30px;
-    color: #f2e3d6;
+    color: var(--plannerzBeige);
 }
 
 .days li .active {
     padding: 5px;
-    background: #c45400;
-    color: #d17200 !important
+    background: var(--plannerzOrange);
+    color: var(--plannerzLightOrange) !important
 }
 
 /* Add media queries for smaller screens */
@@ -162,7 +162,7 @@ h2 {
 }
 
 .listItem:hover, .checkedListItem:hover{
-    background-color: #cec1b5;
+    background-color: var(--plannerzOffGray);
 }
 
 

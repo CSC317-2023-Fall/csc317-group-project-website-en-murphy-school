@@ -1,4 +1,4 @@
-@import "plannerz-colors.css";
+@import "plannerz-colors-light.css";
 
 .flex-box {
     flex-direction: column;
@@ -7,21 +7,21 @@
 }
 
 .box-header {
-    background-color: #c46720;
+    background-color: var(--plannerzLightOrange);
     text-align: center;
-    color: #311602;
+    color: var(--plannerzDarkBrown);
     padding: 25px;
 }
 
 .box-content {
-    background-color: #bb9b8e;
+    background-color: var(--plannerzBeige);
     text-align: left;
     margin: 10px;
     padding: 25px;
 }
 
 .fakeimg {
-    background-color: #aaa;
+    background-color: var(--plannerzOffGray);
     height: 65px;
     width:65px;
     margin: 5px;
@@ -32,15 +32,15 @@
 
 .tab {
     float: left;
-    border: 1px solid #ccc;
-    background-color: #c46720;
+    border: 1px solid var(--plannerzOffGray);
+    background-color: var(--plannerzLightOrange);
     width: 30%;
     height: 300px;
   }
 
   .tab button {
     display: block;
-    background-color: #c46720;
+    background-color: var(--plannerzLightOrange);
     color: black;
     padding: 22px 16px;
     width: 100%;
@@ -53,19 +53,19 @@
   }
 
   .tab button.active{
-    background-color: #3b220e;
+    background-color: var(--plannerzDarkBrown);
   }
 
   .tabcontent {
     padding: 0px 12px;
-    border: 1px solid #ec893d;
+    border: 1px solid var(--plannerzLightOrange);
     width: 70%;
     border-left: none;
     height: 300px;
   }
 
   h1 {
-    color: #c45400;
+    color: var(--plannerzOrange);
     font-size: 70px;
     text-align: center;
     text-decoration: underline;

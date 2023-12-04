@@ -1,7 +1,7 @@
-@import "plannerz-colors.css";
+@import "plannerz-colors-light.css";
 
 h1 {
-    color: #c45400;
+    color: var(--plannerzOrange);
     font-size: 70px;
     text-align: center;
     text-decoration: underline;
@@ -9,24 +9,24 @@ h1 {
 }
 
 h2 {
-    color: #994900;
+    color: var(--plannerzLightBrown);
     font-size: 40px;
     text-align: center;
     text-decoration: overline;
 }
 
 h3 {
-    color: #994900;
+    color: var(--plannerzLightBrown);
     font-size: 20px;
     text-align: center;
 }
 
 .textDiv {
-    color: #59320a;
+    color: var(--plannerzDarkBrown);
     border-radius: 10px;
     max-width: 1000px;
     text-align: center;
-    border: 5px solid #994900;
+    border: 5px solid var(--plannerzLightBrown);
     margin: auto;
     font-size: 30px;
 }
@@ -159,7 +159,7 @@ stuff {
   .waviy span {
     position: relative;
     display: inline-block;
-    color: #994900;
+    color: var(--plannerzLightBrown);
     font-size: 40px;
     text-align: center;
     text-decoration: overline;
