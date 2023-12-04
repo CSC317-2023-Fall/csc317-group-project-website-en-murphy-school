@@ -115,7 +115,7 @@
                     <input id="myfile" name="myfile" type="file"><br><br>
                     <input type="submit" value="Upload Sound">
                     <div style="text-align: center; padding: 20px;">
-                        <button class="form" onclick="submitCookie"
+                        <button class="form" onclick="submitCookie()"
                                 style="font-size: larger; background-color:sandybrown;">Save
                             Changes
                         </button>
@@ -157,9 +157,9 @@
 
             function getACookie(name) {
                 let cookieName = document.getElementById("getme").value;     // Get the value from the text box called getme
-                let allCookies = document.cookie.split(';');      // Splits all of the cookies and puts them in an array
+                let allCookies = document.cookie.split(';');      // Splits all the cookies and puts them in an array
                 let cookieData = "";
-                for (let i = 0; i < allCookies.length; i++)     // Cycle through all of the cookies in the array
+                for (let i = 0; i < allCookies.length; i++)     // Cycle through all the cookies in the array
                 {
                     match = allCookies[i].replace(" ", "");     // Deletes whitespace that may proceed the cookie name
                     cookieData = match.substr((cookieName.length + 1));     // Assign the substring that follows the cookie name
