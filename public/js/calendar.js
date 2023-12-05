@@ -47,16 +47,18 @@ function displayCalendar(aDate) {
     xhr.send(JSON.stringify(doc));
 
     // Rerender the calendar once you have the right events.
-    renderCalendar(monthCurrent, monthFinal, xhr.response);
+    renderCalendar(monthCurrent, monthFinal, JSON.parse(xhr.response));
 }
 
 function renderCalendar(monthCurrent, monthFinal, events) {
+    let hasEvents = false;
+    document.getElementById("calendar-loading").style.visibility = "visible";
     if (events !== null) {
         document.getElementById("calendar-loading").style.visibility = "hidden";
+        hasEvents = true;
 
         //alert(displayMonth(monthCurrent.getMonth()) + " events:\n" + events)
     } else {
-        document.getElementById("calendar-loading").style.visibility = "visible";
     }
 
     let week = 0;
@@ -71,11 +73,41 @@ function renderCalendar(monthCurrent, monthFinal, events) {
 
         document.getElementById("month").getElementsByTagName("tr")[2 + week]
             .getElementsByTagName("td")[monthCurrent.getDay()].innerHTML = monthCurrent.getDate().toString();
+        if(hasEvents) {
+            document.getElementById("month").getElementsByTagName("tr")[2 + week]
+                .getElementsByTagName("td")[monthCurrent.getDay()].innerHTML += insertEvents(events, monthCurrent.getDate().toString().padStart(2, "0"), 2 + week);
+        }
+
         monthCurrent.setDate(monthCurrent.getDate() + 1);
+    }
+
+    if(!hasEvents) {
+        document.getElementById("calendar-loading").style.visibility = "hidden";
     }
 
     if (week === 5) {
         document.getElementsByTagName("tr")[7].style.display = "";
+    }
+
+    function insertEvents(events, day, week) {
+        let toInsert = Array();
+        let eventDisplay = "";
+
+        for(let i in events) {
+            if (events[i].start.toString().slice(8, 10) === day.padStart(2, "0")) {
+                toInsert.push(events[i]);
+            }
+        }
+
+        for (let i in toInsert) {
+            if (toInsert[i].type.toString() === "assignment") {
+                eventDisplay += "<div class='assignment'></div>"
+            } else if (toInsert[i].type.toString() === "event") {
+
+            }
+        }
+
+        return eventDisplay;
     }
 }
 

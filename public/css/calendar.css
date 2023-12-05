@@ -64,11 +64,11 @@
 }
 
 #month tr {
-    height: 17vh;
+    height: 9.5vw;
 }
 
 #month #days-of-week {
-    height: 6vh;
+    height: 3vw;
     vertical-align: center;
 }
 
@@ -151,7 +151,7 @@
 
 #calendar-head h2 {
     font-size: 5vw;
-    text-shadow: 2px 2px 2px var(--plannerzDarkBrown);
+    text-shadow: 0.2vw 0.2vw 0.2vw var(--plannerzDarkBrown);
     font-variant: small-caps;
 }
 
@@ -213,7 +213,7 @@
     transform: translate(-50%, -50%);
     background-color: var(--plannerzOffWhite);
     border: black solid 0.3vw;
-    border-radius: 10px;
+    border-radius: 0.8vw;
 }
 
 #calendar-loading p {
