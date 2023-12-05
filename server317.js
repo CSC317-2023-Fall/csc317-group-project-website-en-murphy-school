@@ -31,14 +31,13 @@ app.post('/signupForm', function (req, res) {
             console.log(qq);
             connection.query(qq, function(err, result, fields) {
                 if(err) throw err;
-                var resstr = '<form action="signupForm method="post" enctype="multipart/form-data">'
+                var resstr = ''
                 console.log(result);
                 qq = "INSERT INTO USERSETTINGS (owner_id, theme, language) VALUES ("+ result.insertId + ", 'light', 'en')";
                 connection.query(qq,function(err, result, fields){
                     if(err) throw err;
-                    resstr = resstr + "<br>" + qq;
-                    console.log(resstr);
-                    return res.send(resstr);
+                    resstr = resstr + "" + qq;
+                    return res.redirect('/login.html');
                 });
             })
 
