@@ -147,6 +147,9 @@ function renderCalendar(monthCurrent, monthFinal, events) {
         }
 
         for (let i in toInsert) {
+            let startTime = toInsert[i].start.toString();
+            let timeString = startTime;
+
             if (toInsert[i].type.toString() === "assignment") {
                 eventDisplay += "<li class='assignment'>" + toInsert[i].name.toString() + "<div><h2 class='assignment-name'>"
                     + insertPriorityImage(toInsert[i]) + toInsert[i].name.toString() +
@@ -154,7 +157,7 @@ function renderCalendar(monthCurrent, monthFinal, events) {
                     toInsert[i].description.toString() + "</p></div></li><br/>";
             } else if (toInsert[i].type.toString() === "event") {
                 eventDisplay += "<li class='event'>" + toInsert[i].name.toString() + "<div><h2 class='event-name'>" + toInsert[i].name.toString() +
-                    "</h2><p class='event-time'>" + toInsert[i].start.toString() + " - " + toInsert[i].start.toString() + "</p><p class='event-description'>" +
+                    "</h2><p class='event-time'>" + timeString + "</p><p class='event-description'>" +
                     toInsert[i].description.toString() + "</p></div></li><br/>";
             }
         }
