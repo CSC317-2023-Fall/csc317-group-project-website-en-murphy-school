@@ -148,7 +148,7 @@ function renderCalendar(monthCurrent, monthFinal, events) {
 
         for (let i in toInsert) {
             let startTime = toInsert[i].start.toString();
-            let timeString = startTime;
+            let timeString = startTime.slice(0, 10) + " " + startTime.slice(11, 16);
 
             if (toInsert[i].type.toString() === "assignment") {
                 eventDisplay += "<li class='assignment'>" + toInsert[i].name.toString() + "<div><h2 class='assignment-name'>"
