@@ -13,6 +13,10 @@ const bodyParser = require('body-parser');
 let mysql = require('mysql');
 app.use(cookieParser());
 
+var bcrypt = require('bcrypt')
+const saltRounds = 12;
+
+
 var StaticDirectory = path.join(__dirname, 'public');
 
 app.use(express.static(StaticDirectory));
@@ -25,24 +29,36 @@ app.post('/signupForm', function (req, res) {
         user: 'student',
         password: 'student',
         database: 'plannerzdb'
-        });
+    });
+
     form.parse(req, function (err, ffields, files) {
-        connection.connect(function(err) {
+        // Ensure the password is a string
+        const password = String(ffields.password);
+
+        // Generate a salt and hash for the password
+        bcrypt.hash(password, saltRounds, function (err, hash) {
             if (err) throw err;
-            let qq = "INSERT INTO USER (firstName, lastName, email, password) VALUES('" + ffields.firstName +"', '" + ffields.lastName + "', '" + ffields.loginEmail + "', '" + ffields.password +"')";
-            console.log(qq);
-            connection.query(qq, function(err, result, fields) {
-                if(err) throw err;
-                var resstr = ''
-                console.log(result);
-                qq = "INSERT INTO USERSETTINGS (owner_id, theme, language) VALUES ("+ result.insertId + ", 'light', 'en')";
-                connection.query(qq,function(err, result, fields){
-                    if(err) throw err;
-                    resstr = resstr + "" + qq;
-                    return res.redirect('/login.html');
+
+            connection.connect(function (err) {
+                if (err) throw err;
+
+                let qq = "INSERT INTO USER (firstName, lastName, email, password) VALUES('" + ffields.firstName + "', '" + ffields.lastName + "', '" + ffields.loginEmail + "', '" + hash + "')";
+                console.log(qq);
+
+                connection.query(qq, function (err, result, fields) {
+                    if (err) throw err;
+
+                    var resstr = '';
+                    console.log(result);
+
+                    qq = "INSERT INTO USERSETTINGS (owner_id, theme, language) VALUES (" + result.insertId + ", 'light', 'en')";
+                    connection.query(qq, function (err, result, fields) {
+                        if (err) throw err;
+                        resstr = resstr + "" + qq;
+                        return res.redirect('/login.html');
+                    });
                 });
             });
-
         });
     });
 });
@@ -55,26 +71,43 @@ app.post('/signIn', function (req, res) {
         password: 'student',
         database: 'plannerzdb'
     });
-    form.parse(req, function(err, ffields, files) {
-        connection.connect(function(err) {
-            if(err) throw err;
-            let qq  = "SELECT * FROM USER WHERE email='" + ffields.email + "' AND password='" + ffields.password + "'";
-            console.log(qq);
-            connection.query(qq, function(err, result, fields) {
-                if(err) throw err;
-                let login = 'false';
-                console.log(result);
-                if(result.length == 0){
-                    login='';
-                }else {login='true'}
-                res.cookie('loggedIn', login, {sameSite:'lax', path:'/'});
-                // res.cookie('id', )
-                console.log(req.cookies);
-                res.redirect('/index.html');
-                // res.redirect('/index.html');
 
-            })
-        })
+    form.parse(req, function (err, ffields, files) {
+        connection.connect(function (err) {
+            if (err) throw err;
+
+            let qq = "SELECT * FROM USER WHERE email='" + ffields.email + "'";
+            console.log(qq);
+
+            connection.query(qq, function (err, result, fields) {
+                if (err) throw err;
+
+                if (result.length > 0) {
+                    // Ensure the user-provided password is a string
+                    const providedPassword = String(ffields.password);
+
+                    // Compare the provided password with the hashed password in the database
+                    bcrypt.compare(providedPassword, result[0].password, function (err, match) {
+                        if (err) throw err;
+
+                        let login = match ? 'true' : 'false';
+                        res.cookie('loggedIn', login, { sameSite: 'lax', path: '/' });
+
+                        if (match) {
+                            // Passwords match, proceed with redirect
+                            console.log(req.cookies);
+                            res.redirect('/index.html');
+                        } else {
+                            // Passwords do not match, handle accordingly (e.g., redirect to login page)
+                            res.redirect('/login.html');
+                        }
+                    });
+                } else {
+                    // User not found, handle accordingly (e.g., redirect to login page)
+                    res.redirect('/login.html');
+                }
+            });
+        });
     });
 });
 
