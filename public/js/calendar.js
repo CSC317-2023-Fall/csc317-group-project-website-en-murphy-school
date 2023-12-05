@@ -120,9 +120,36 @@ function renderCalendar(monthCurrent, monthFinal, events) {
          */
 
 
+        function insertPriorityImage(toInsertElement) {
+            let image;
+            let priority;
+
+            switch (toInsertElement.priority) {
+                case 1:
+                    priority = "low";
+                    image = "low.png";
+                    break;
+                case 2:
+                    priority = "medium";
+                    image = "medium.png";
+                    break;
+                case 3:
+                    priority = "high";
+                    image = "high.png";
+                    break;
+                default:
+                    priority = "no";
+                    image = "none.png";
+                    break;
+            }
+
+            return "<img class='assignment-priority' src='/images/priority/" + image + "' alt='(" + priority + " priority) '>";
+        }
+
         for (let i in toInsert) {
             if (toInsert[i].type.toString() === "assignment") {
-                eventDisplay += "<li class='assignment'>" + toInsert[i].name.toString() + "<div><h2 class='assignment-name'>" + toInsert[i].name.toString() +
+                eventDisplay += "<li class='assignment'>" + toInsert[i].name.toString() + "<div><h2 class='assignment-name'>"
+                    + insertPriorityImage(toInsert[i]) + toInsert[i].name.toString() +
                     "</h2><p class='assignment-time'>" + toInsert[i].start.toString() + "</p><p class='assignment-description'>" +
                     toInsert[i].description.toString() + "</p></div></li><br/>";
             } else if (toInsert[i].type.toString() === "event") {
