@@ -7,9 +7,11 @@ var formidable = require('formidable');
 var express = require('express');
 var database = require('./database');
 var app = express();
+var cookieParser = require('cookie-parser');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 let mysql = require('mysql');
+app.use(cookieParser());
 
 var StaticDirectory = path.join(__dirname, 'public');
 
@@ -45,7 +47,7 @@ app.post('/signupForm', function (req, res) {
     });
 });
 
-app.post('/signIn', function(req, res) {
+app.post('/signIn', function (req, res) {
     var form = new formidable.IncomingForm();
     let connection = mysql.createConnection({
         host: 'localhost',
@@ -59,9 +61,11 @@ app.post('/signIn', function(req, res) {
             let qq  = "SELECT * FROM USER WHERE email = '" + ffields.email + "' AND password = '" + ffields.email + "'";
             connection.query(qq, function(err, result, fields) {
                 if(result.length == 0){
-                    return res.redirect('/login.html');
+                    return res.send('/login.html');
                 }
-                
+                    // res.cookie('loggedIn', 'true', {sameSite:'lax', path:'/'});
+                    // res.send(req.cookies);
+                    return res.redirect('/index.html');
 
             })
         })
