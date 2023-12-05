@@ -58,14 +58,20 @@ app.post('/signIn', function (req, res) {
     form.parse(req, function(err, ffields, files) {
         connection.connect(function(err) {
             if(err) throw err;
-            let qq  = "SELECT * FROM USER WHERE email = '" + ffields.email + "' AND password = '" + ffields.email + "'";
+            let qq  = "SELECT * FROM USER WHERE email='" + ffields.email + "' AND password='" + ffields.password + "'";
+            console.log(qq);
             connection.query(qq, function(err, result, fields) {
+                if(err) throw err;
+                let login = 'false';
+                console.log(result);
                 if(result.length == 0){
-                    return res.send('/login.html');
-                }
-                    // res.cookie('loggedIn', 'true', {sameSite:'lax', path:'/'});
-                    // res.send(req.cookies);
-                    return res.redirect('/index.html');
+                    login='';
+                }else {login='true'}
+                res.cookie('loggedIn', login, {sameSite:'lax', path:'/'});
+                // res.cookie('id', )
+                console.log(req.cookies);
+                res.redirect('/index.html');
+                // res.redirect('/index.html');
 
             })
         })
@@ -73,11 +79,27 @@ app.post('/signIn', function (req, res) {
 });
 
 app.post("/saveAccountSettings", function(req,res) {
+    var form = new formidable.IncomingForm();
+    let connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'student',
+        password: 'student',
+        database: 'plannerzdb'
+    });
+
     console.log(req.body);
     // database.saveAccountSettings;
 });
 
 app.post("/savePreferenceSettings", function(req,res) {
+    var form = new formidable.IncomingForm();
+    let connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'student',
+        password: 'student',
+        database: 'plannerzdb'
+    });
+
     console.log(req,body);
     // database.savePreferenceSettings;
 });

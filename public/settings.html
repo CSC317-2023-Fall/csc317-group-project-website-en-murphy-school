@@ -58,7 +58,7 @@
     <div class="tab">
         <button class="tablinks" onclick="openSetting(event, 'Account')" id="defaultOpen">Account</button>
         <button class="tablinks" onclick="openSetting(event, 'Preferences')">Preferences</button>
-        <button class="tablinks" onclick="openSetting(event, 'Notifications')">Notifications</button>
+        <!-- <button class="tablinks" onclick="openSetting(event, 'Notifications')">Notifications</button> -->
     </div>
     <div id="Account" class="tabcontent">
         <h2>Account Settings</h2>
@@ -76,9 +76,9 @@
     <div id="Preferences" class="tabcontent">
         <h2>Preferences</h2>
         <h4>Display Language</h4>
-        <form onsubmit="createCookie">
-            <label for="website-lang"></label>
-            <select data-placeholder="en" id="website-lang">
+        <form onsubmit="savePreferenceSettings" >
+            <label for="language"></label>
+            <select data-placeholder="en" id="language">
                 <option value="en">English</option>
                 <option value="es">Spanish</option>
             </select>
@@ -90,8 +90,8 @@
                 </select>
             </label> <br><br>
             <div style="text-align: center; padding: 20px;">
-                <button class="form" style="font-size: larger; background-color:sandybrown;" type="submit">Save Changes
-                </button>
+                <input class="form" style="font-size: larger; background-color:sandybrown;" type="submit">Save Changes
+            </input>
             </div>
         </form>
     </div>
