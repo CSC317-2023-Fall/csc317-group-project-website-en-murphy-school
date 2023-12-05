@@ -16,9 +16,9 @@
     <!--Read a cookie named loggedIn and if it's null, redirect user to the login page-->
     <script src="js/util.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () =>{
-            var cookie = readCookie("loggedIn")
-            if(cookie === ""){
+        document.addEventListener("DOMContentLoaded", () => {
+            let cookie = readCookie("loggedIn")
+            if (cookie === "") {
                 window.location.href = "login.html"
             }
         })
@@ -45,174 +45,192 @@
 
 
 <div class="content">
-    <stuff>
-    <section id="calendar">
-        <table id="month">
-            <tr id="calendar-head">
-                <th colspan="7">
-                    <button class="backward-arrow" onclick="backwardMonth()"><img src="images/arrow.png" alt="go forward a month"></button>
-                    <div id="month-head">
-                        <h2 id="month-display"></h2>
+    <div class="stuff">
+        <section id="calendar">
+            <table id="month">
+                <tr id="calendar-head">
+                    <th colspan="7">
+                        <button class="backward-arrow" onclick="backwardMonth()"><img alt="go forward a month"
+                                                                                      src="images/arrow.png"></button>
+                        <div id="month-head">
+                            <h2 id="month-display"></h2>
+                            <br/>
+                            <h3 id="year-display"></h3>
+                        </div>
+                        <button class="forward-arrow" onclick="forwardMonth()"><img alt="go back a month"
+                                                                                    src="images/arrow.png"></button>
+                    </th>
+                </tr>
+                <tr id="days-of-week">
+                    <th>Sunday</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <div id="calendar-loading">
+                <p>Loading...</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="my-form" id="event-form">
+                <h2>
+                    New Event
+                </h2>
+
+                <form action="calendar.html" id="new-event" onsubmit="saveEvent()">
+                    <div class="form-group">
+                        <label for="event-name">Event Name</label>
                         <br/>
-                        <h3 id="year-display"></h3>
+                        <input id="event-name" name="event-name" placeholder="Event Name" required type="text">
                     </div>
-                    <button class="forward-arrow" onclick="forwardMonth()"><img src="images/arrow.png" alt="go back a month"></button>
-                </th>
-            </tr>
-            <tr id="days-of-week">
-                <th>Sunday</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-    </section>
 
-    <div class="container">
-        <section class="my-form" id="event-form">
-            <h2>
-                New Event
-            </h2>
+                    <div class="form-group">
+                        <label for="event-start-date">Start Date</label>
+                        <label for="event-end-date">End Date</label>
+                        <br/>
+                        <input id="event-start-date" name="event-start-date" required type="datetime-local">
+                        <input id="event-end-date" name="event-end-date" required type="datetime-local">
+                    </div>
 
-            <form action="calendar.html" id="new-event">
-                <div class="form-group">
-                    <label for="event-name">Event Name</label>
-                    <br/>
-                    <input type="text" id="event-name" name="event-name" placeholder="Event Name" required>
-                </div>
+                    <div class="form-group">
+                        <label for="event-location">Location</label>
+                        <br/>
+                        <textarea id="event-location" name="event-location" rows="3"></textarea>
+                    </div>
 
-                <div class="form-group">
-                    <label for="event-start-date">Start Date</label>
-                    <label for="event-end-date">End Date</label>
-                    <br/>
-                    <input type="datetime-local" id="event-start-date" name="start-date" required>
-                    <input type="datetime-local" id="event-end-date" name="end-date" required>
-                </div>
+                    <div class="form-group">
+                        <label for="event-description">Description</label>
+                        <br/>
+                        <textarea id="event-description" name="event-description" rows="1"></textarea>
+                    </div>
 
-                <div class="form-group">
-                    <label for="event-location">Location</label>
-                    <br/>
-                    <textarea id="event-location" name="create-event" rows="3"></textarea>
-                </div>
+                    <div class="form-group">
+                        <input id="create-event" name="create-event" type="submit" value="Create Event">
+                    </div>
+                </form>
+            </section>
 
-                <div class="form-group">
-                    <label for="event-description">Description</label>
-                    <br/>
-                    <textarea id="event-description" name="create-event" rows="1"></textarea>
-                </div>
+            <section class="my-form" id="assignment-form">
+                <h2>
+                    New Assignment
+                </h2>
 
-                <div class="form-group">
-                    <input type="submit" id="create-event" name="create-event" value="Create Event">
-                </div>
-            </form>
-        </section>
+                <form action="calendar.html" id="new-assignment" name="new-assignment" onsubmit="saveAssignment()">
+                    <div class="form-group">
+                        <label for="assignment-name">Event Name</label>
+                        <br/>
+                        <input id="assignment-name" name="assignment-name" placeholder="Event Name" required
+                               type="text">
+                    </div>
 
-        <section class="my-form" id="assignment-form">
-            <h2>
-                New Assignment
-            </h2>
+                    <div class="form-group my-radio" id="assignment-priority">
+                        <label>Priority: </label>
 
-            <form action="calendar.html" id="new-assignment">
-                <div class="form-group">
-                    <label for="assignment-name">Event Name</label>
-                    <br/>
-                    <input type="text" id="assignment-name" name="event-name" placeholder="Event Name" required>
-                </div>
+                        <br/>
 
-                <div class="form-group my-radio">
-                    <label>Priority: </label>
+                        <div class="priority-radio">
+                            <label class="for-radio" for="none"><img alt="None" src="images/priority/none.png"></label>
+                            <br/>
+                            <input checked id="none" name="assignment-priority" required type="radio">
+                        </div>
+                        <div class="priority-radio">
+                            <label class="for-radio" for="low"><img alt="Low" src="images/priority/low.png"></label>
+                            <br/>
+                            <input id="low" name="assignment-priority" type="radio">
+                        </div>
+                        <div class="priority-radio">
+                            <label class="for-radio" for="medium"><img alt="Medium"
+                                                                       src="images/priority/medium.png"></label>
+                            <br/>
+                            <input id="medium" name="assignment-priority" type="radio">
+                        </div>
+                        <div class="priority-radio">
+                            <label class="for-radio" for="high"><img alt="High" src="images/priority/high.png"></label>
+                            <br/>
+                            <input id="high" name="assignment-priority" type="radio">
+                        </div>
 
-                    <br/>
 
-                    <label for="none" class="for-radio"><img src="images/priority/none.png" alt="None"></label>
-                    <label for="low" class="for-radio"><img src="images/priority/low.png" alt="Low"></label>
-                    <label for="medium" class="for-radio"><img src="images/priority/medium.png" alt="Medium"></label>
-                    <label for="high" class="for-radio"><img src="images/priority/high.png" alt="High"></label>
+                    </div>
 
-                    <br/>
+                    <div class="form-group">
+                        <label for="assignment-date">Start Date</label>
+                        <br/>
+                        <input id="assignment-date" name="assignment-date" required type="datetime-local">
+                    </div>
 
-                    <input type="radio" id="none" name="priority" required>
-                    <input type="radio" id="low" name="priority">
-                    <input type="radio" id="medium" name="priority">
-                    <input type="radio" id="high" name="priority">
-                </div>
+                    <div class="form-group">
+                        <label for="assignment-description">Description</label>
+                        <br/>
+                        <textarea id="assignment-description" name="assignment-description" rows="1"></textarea>
+                    </div>
 
-                <div class="form-group">
-                    <label for="assignment-date">Start Date</label>
-                    <br/>
-                    <input type="datetime-local" id="assignment-date" name="start-date" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="assignment-description">Description</label>
-                    <br/>
-                    <textarea id="assignment-description" name="create-event" rows="1"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <input type="submit" id="create-assignment" name="create-assignment" value="Create Assignment">
-                </div>
-            </form>
-        </section>
+                    <div class="form-group">
+                        <input id="create-assignment" name="create-assignment" type="submit" value="Create Assignment">
+                    </div>
+                </form>
+            </section>
+        </div>
     </div>
-    </stuff>
 </div>
 
 <script src="js/calendar.js"></script>

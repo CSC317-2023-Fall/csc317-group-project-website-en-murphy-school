@@ -5,7 +5,7 @@ var port = 3000;
 var path = require('path');
 var formidable = require('formidable');
 var express = require('express');
-var database = require('./database');
+let db = require('./database.js');
 var app = express();
 var cookieParser = require('cookie-parser');
 const fs = require('fs');
@@ -16,6 +16,29 @@ app.use(cookieParser());
 var bcrypt = require('bcrypt')
 const saltRounds = 12;
 
+app.use(bodyParser.json({ extended: true }));
+
+// Router for save event AJAX call
+app.post("/saveEvent", function (req, res) {
+    console.log(req.body);
+    res.send('POST request to the homepage (new event)');
+
+    db.saveEvent(req.body, "putUser");
+});
+
+// Router for save Assignment AJAX call
+app.post("/saveAssignment", function (req, res) {
+    console.log(req.body);
+    res.send('POST request to the homepage (new assignment)');
+
+    db.saveAssignment(req.body, "putUser");
+});
+
+// Router for get events AJAX call
+app.post("/getEvents", function (req, res) {
+    console.log(req.body);
+    db.getEvents(req, res);
+});
 
 var StaticDirectory = path.join(__dirname, 'public');
 

@@ -64,11 +64,11 @@
 }
 
 #month tr {
-    height: 17vh;
+    height: 9.5vw;
 }
 
 #month #days-of-week {
-    height: 6vh;
+    height: 3vw;
     vertical-align: center;
 }
 
@@ -151,7 +151,7 @@
 
 #calendar-head h2 {
     font-size: 5vw;
-    text-shadow: 2px 2px 2px var(--plannerzDarkBrown);
+    text-shadow: 0.2vw 0.2vw 0.2vw var(--plannerzDarkBrown);
     font-variant: small-caps;
 }
 
@@ -184,11 +184,12 @@
     cursor: pointer;
 }
 
-stuff {
+.stuff {
     animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
+
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -197,5 +198,25 @@ stuff {
     100% {
         opacity: 1;
     }
-    
+
+}
+
+.priority-radio {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+#calendar-loading {
+    position: absolute;
+    left: 50%;
+    top: calc(140px + 40vw);
+    transform: translate(-50%, -50%);
+    background-color: var(--plannerzOffWhite);
+    border: black solid 0.3vw;
+    border-radius: 0.8vw;
+}
+
+#calendar-loading p {
+    font-size: 2vw;
+    padding: 0.1vw 0.4vw;
 }
