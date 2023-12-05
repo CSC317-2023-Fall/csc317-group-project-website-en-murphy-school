@@ -56,11 +56,12 @@ app.post('/signIn', function(req, res) {
     form.parse(req, function(err, ffields, files) {
         connection.connect(function(err) {
             if(err) throw err;
-            let qq  = "SELECT * FROM USERS WHERE email = '" + ffields.email + "' AND password = '" + ffields.email + "'";
+            let qq  = "SELECT * FROM USER WHERE email = '" + ffields.email + "' AND password = '" + ffields.email + "'";
             connection.query(qq, function(err, result, fields) {
-                if(result[0].length == 0){
+                if(result.length == 0){
                     return res.redirect('/login.html');
                 }
+                
 
             })
         })
