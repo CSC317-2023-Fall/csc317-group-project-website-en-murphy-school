@@ -164,4 +164,14 @@ app.listen(port, () => {
     console.log(`Listening on http://localhost:${port}/`);
 });
 
+app.post("/saveAccountSettings", function(req,res) {
+    console.log(req.body);
+    // database.saveAccountSettings;
+});
+
+app.post("/savePreferenceSettings", function(req,res) {
+    console.log(req,body);
+    // database.savePreferenceSettings;
+});
+
 console.log(message);
