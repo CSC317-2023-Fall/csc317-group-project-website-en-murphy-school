@@ -75,7 +75,7 @@ function renderCalendar(monthCurrent, monthFinal, events) {
             .getElementsByTagName("td")[monthCurrent.getDay()].innerHTML = monthCurrent.getDate().toString();
         if(hasEvents) {
             document.getElementById("month").getElementsByTagName("tr")[2 + week]
-                .getElementsByTagName("td")[monthCurrent.getDay()].innerHTML += insertEvents(events, monthCurrent.getDate().toString().padStart(2, "0"), 2 + week);
+                .getElementsByTagName("td")[monthCurrent.getDay()].innerHTML += insertEvents(events, monthCurrent.getDate().toString().padStart(2, "0"));
         }
 
         monthCurrent.setDate(monthCurrent.getDate() + 1);
@@ -89,7 +89,7 @@ function renderCalendar(monthCurrent, monthFinal, events) {
         document.getElementsByTagName("tr")[7].style.display = "";
     }
 
-    function insertEvents(events, day, week) {
+    function insertEvents(events, day) {
         let toInsert = Array();
         let eventDisplay = "";
 
