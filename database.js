@@ -82,6 +82,16 @@ connection.query(qq, function(err, result, fields){
     console.log(result);
 });
 
+qq  = "SELECT * FROM USERS WHERE email='test@email.com' AND password='student'";
+            connection.query(qq, function(err, result, fields) {
+                if(result && result.length == 0){
+                    console.log("Empty Result");
+                }else {
+                    console.log(result);
+                }
+
+            })
+
 }
 
 

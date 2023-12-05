@@ -39,11 +39,33 @@ app.post('/signupForm', function (req, res) {
                     resstr = resstr + "" + qq;
                     return res.redirect('/login.html');
                 });
-            })
+            });
 
+        });
+    });
+});
+
+app.post('/signIn', function(req, res) {
+    var form = new formidable.IncomingForm();
+    let connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'student',
+        password: 'student',
+        database: 'plannerzdb'
+    });
+    form.parse(req, function(err, ffields, files) {
+        connection.connect(function(err) {
+            if(err) throw err;
+            let qq  = "SELECT * FROM USERS WHERE email = '" + ffields.email + "' AND password = '" + ffields.email + "'";
+            connection.query(qq, function(err, result, fields) {
+                if(result[0].length == 0){
+                    return res.redirect('/login.html');
+                }
+
+            })
         })
-    })
-})
+    });
+});
 
 app.post("/saveAccountSettings", function(req,res) {
     console.log(req.body);
