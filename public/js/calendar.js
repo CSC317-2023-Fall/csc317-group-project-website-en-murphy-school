@@ -91,7 +91,7 @@ function renderCalendar(monthCurrent, monthFinal, events) {
 
     function insertEvents(events, day) {
         let toInsert = Array();
-        let eventDisplay = "";
+        let eventDisplay = "<ul>";
 
         for(let i in events) {
             if (events[i].start.toString().slice(8, 10) === day.padStart(2, "0")) {
@@ -99,14 +99,40 @@ function renderCalendar(monthCurrent, monthFinal, events) {
             }
         }
 
+        /*
+                <ul>
+                    <li class="event">
+                        Important Event in Which I Will be Doing Things
+                        <div>
+                            <h2 class="event-name">
+                                Important Event in Which I Will be Doing Things
+                            </h2>
+                            <p class="event-time">
+                                2:00 am - 3:15 pm
+                            </p>
+                            <p class="event-description">
+                                This event is happening today. It is event which is happening and the day that it
+                                is happening just happens to be the day that is listed right here.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+         */
+
+
         for (let i in toInsert) {
             if (toInsert[i].type.toString() === "assignment") {
-                eventDisplay += "<div class='assignment'></div>"
+                eventDisplay += "<li class='assignment'>" + toInsert[i].name.toString() + "<div><h2 class='assignment-name'>" + toInsert[i].name.toString() +
+                    "</h2><p class='assignment-time'>" + toInsert[i].start.toString() + "</p><p class='assignment-description'>" +
+                    toInsert[i].description.toString() + "</p></div></li><br/>";
             } else if (toInsert[i].type.toString() === "event") {
-
+                eventDisplay += "<li class='event'>" + toInsert[i].name.toString() + "<div><h2 class='event-name'>" + toInsert[i].name.toString() +
+                    "</h2><p class='event-time'>" + toInsert[i].start.toString() + " - " + toInsert[i].start.toString() + "</p><p class='event-description'>" +
+                    toInsert[i].description.toString() + "</p></div></li><br/>";
             }
         }
 
+        eventDisplay += "</ul>"
         return eventDisplay;
     }
 }

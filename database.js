@@ -42,7 +42,7 @@ function saveEvent(event, user) {
 }
 
 function getEvents(req, res) {
-    let query = "select * from (select 'event' as type, name, start from events union all select 'assignment', name, due_date from assignments) all_events where start like ? order by start";
+    let query = "select * from (select 'event' as type, name, start, description from events union all select 'assignment', name, due_date, description from assignments) all_events where start like ? order by start";
     try {
         let month = req.body.month + "%";
         //let month = "%";
