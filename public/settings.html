@@ -44,129 +44,161 @@
 <div class="content">
     <stuff>
         <div class="lineUp-1">
-    <h1>Settings</h1>
-    </div>
-    <br><br>
-    <div class="lineUp-2">
-        <button class="form" style="font-size: 40px; background-color:sandybrown;" onclick="window.location.href='login.html'">Log Out</button>
+            <h1>Settings</h1>
+        </div>
+        <br><br>
+        <div class="lineUp-2">
+            <button class="form" onclick="logOut(); "
+                    style="font-size: 40px; background-color:sandybrown;">Log Out
+            </button>
 
-    <h2 style="color: #5a310f;">User: MyUserName</h2> <br>
+            <h2 style="color: #5a310f;">User: MyUserName</h2> <br>
 
-    <div class="fakeimg" style="height: 60px;width:60px;margin: 5px;">User Image</div> <br>
+            <div class="fakeimg" style="height: 60px;width:60px;margin: 5px;">User Image</div>
+            <br>
         </div>
         <div class="lineUp-3">
-    <div class="tab">
-        <button class="tablinks" onclick="openSetting(event, 'Account')" id="defaultOpen">Account</button>
-        <button class="tablinks" onclick="openSetting(event, 'Preferences')">Preferences</button>
-        <!-- <button class="tablinks" onclick="openSetting(event, 'Notifications')">Notifications</button> -->
-    </div>
-    <div id="Account" class="tabcontent">
-        <h2>Account Settings</h2>
-        <h3>Hello MyUserName</h3>
-        <form>
-            <button>Change Email</button>
-            <button>Change Password</button>
-            <button>Change Name</button>
-            <div style="text-align: center; padding: 20px;">
-                <button class="form" style="font-size: larger; background-color:sandybrown;" type="submit">Save Changes
-                </button>
+            <div class="tab">
+                <button class="tablinks" id="defaultOpen" onclick="openSetting(event, 'Account')">Account</button>
+                <button class="tablinks" onclick="openSetting(event, 'Preferences')">Preferences</button>
+                <!-- <button class="tablinks" onclick="openSetting(event, 'Notifications')">Notifications</button> -->
             </div>
-        </form>
-    </div>
-    <div id="Preferences" class="tabcontent">
-        <h2>Preferences</h2>
-        <h4>Display Language</h4>
-        <form onsubmit="savePreferenceSettings" >
-            <label for="language"></label>
-            <select data-placeholder="en" id="language">
-                <option value="en">English</option>
-                <option value="es">Spanish</option>
-            </select>
-            <h4>Theme</h4>
-            <label for="theme">
-                <select data-placeholder="light" id="theme">
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
-                </select>
-            </label> <br><br>
-            <div style="text-align: center; padding: 20px;">
-                <input class="form" style="font-size: larger; background-color:sandybrown;" type="submit">Save Changes
-            </input>
+            <div class="tabcontent" id="Account">
+                <h2>Account Settings</h2>
+                <h3>Hello MyUserName</h3>
+                <form>
+                    <button>Change Email</button>
+                    <button>Change Password</button>
+                    <button>Change Name</button>
+                    <div style="text-align: center; padding: 20px;">
+                        <button class="form" style="font-size: larger; background-color:sandybrown;" type="submit">Save
+                            Changes
+                        </button>
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
-    <div id="Notifications" class="tabcontent">
-        <h2>Notifications</h2>
-        <h4>Notification Sound</h4>
-        <form>
-            <label for="notif-sound"></label>
-            <select data-placeholder="DefaultSound" id="notif-sound">
-                <option value="DefaultSound">Bell</option>
-                <option value="Saxophone">Saxophone</option>
-                <option value="Shout">Shout</option>
-                <option value="Magical">Magical</option>
-                <option value="custom">Custom</option>
-            </select>
-            <p>To use custom sound an MP3 file must be uploaded.</p>
-            <h4>Upload Custom Sound</h4>
-            <label for="myfile">Select MP3 File: </label>
-            <input id="myfile" name="myfile" type="file"><br><br>
-            <input type="submit" value="Upload Sound">
-            <div style="text-align: center; padding: 20px;">
-                <button class="form" style="font-size: larger; background-color:sandybrown;" onclick="submitCookie">Save
-                    Changes
-                </button>
+            <div class="tabcontent" id="Preferences">
+                <h2>Preferences</h2>
+                <h4>Display Language</h4>
+                <form onsubmit="savePreferenceSettings">
+                    <label for="language"></label>
+                    <select data-placeholder="en" id="language">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                    </select>
+                    <h4>Theme</h4>
+                    <label for="theme">
+                        <select data-placeholder="light" id="theme">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </label> <br><br>
+                    <div style="text-align: center; padding: 20px;">
+                        <input class="form" style="font-size: larger; background-color:sandybrown;" type="submit">Save
+                        Changes
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
-    </div>
+            <div class="tabcontent" id="Notifications">
+                <h2>Notifications</h2>
+                <h4>Notification Sound</h4>
+                <form>
+                    <label for="notif-sound"></label>
+                    <select data-placeholder="DefaultSound" id="notif-sound">
+                        <option value="DefaultSound">Bell</option>
+                        <option value="Saxophone">Saxophone</option>
+                        <option value="Shout">Shout</option>
+                        <option value="Magical">Magical</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <p>To use custom sound an MP3 file must be uploaded.</p>
+                    <h4>Upload Custom Sound</h4>
+                    <label for="myfile">Select MP3 File: </label>
+                    <input id="myfile" name="myfile" type="file"><br><br>
+                    <input type="submit" value="Upload Sound">
+                    <div style="text-align: center; padding: 20px;">
+                        <button class="form" onclick="submitCookie"
+                                style="font-size: larger; background-color:sandybrown;">Save
+                            Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-    <script>
-        function openSetting(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
+        <script>
+            function openSetting(evt, tabName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace("active", "");
+                }
+                document.getElementById(tabName).style.display = "block";
+                evt.currentTarget.className += "active";
             }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace("active", "");
+
+            document.getElementById("defaultOpen").click();
+
+            /*
+            function createCookie(newCookie) {
+
+                var expDate = new Date();
+
+                expDate.setMonth(expDate.getMonth() + 1);     // Adds 1 month ahead as the expiration date
+
+                var cookieVal = document.getElementById(newCookie).value;
+
+                // Retrieves cookie value from the node that was past to the function
+
+                document.cookie = newCookie + "=" + cookieVal + ";path=/;expires=" + expDate.toGMTString();     // Creates the cookie
+
             }
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += "active";
-        }
+            */
 
-        document.getElementById("defaultOpen").click();
+            /*
+            function getACookie(name) {
+                var cookieName = document.getElementById("getme").value;     // Get the value from the text box called getme
+                var allCookies = document.cookie.split(';');      // Splits all of the cookies and puts them in an array
+                var cookieData = "";
+                for (var i = 0; i < allCookies.length; i++)     // Cycle through all of the cookies in the array
+                {
+                    match = allCookies[i].replace(" ", "");     // Deletes whitespace that may proceed the cookie name
+                    cookieData = match.substr((cookieName.length + 1));     // Assign the substring that follows the cookie name
+                }
 
-        function createCookie(newCookie){
+            }
+            */
 
-            var expDate = new Date();
+            function logOut() {
+                let cookies = document.cookie.split("; ");
 
-            expDate.setMonth(expDate.getMonth() + 1);     // Adds 1 month ahead as the expiration date
+                for (let i in cookies) {
+                    if (cookies[i].indexOf("id") >= 0) {
+                        document.cookie = "id=" +
+                            ";path=" +
+                            ";domain=" +
+                            ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
 
-            var cookieVal = document.getElementById(newCookie).value;
+                        console.log("id expired");
+                    }
+                    if (cookies[i].indexOf("loggedIn") >= 0) {
+                        document.cookie = "loggedIn=" +
+                            ";path=" +
+                            ";domain=" +
+                            ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
 
-            // Retrieves cookie value from the node that was past to the function
+                        console.log("loggedIn expired");
+                    }
+                }
 
-            document.cookie = newCookie + "=" + cookieVal + ";path=/;expires=" + expDate.toGMTString();     // Creates the cookie
+                window.location.href='login.html'
+            }
 
-        }
-
-        function getACookie(name)
-        {
-            var cookieName = document.getElementById("getme").value;     // Get the value from the text box called getme
-            var allCookies = document.cookie.split(';');      // Splits all of the cookies and puts them in an array
-            var cookieData = "";
-            for (var i=0; i < allCookies.length; i++)     // Cycle through all of the cookies in the array
-            {
-            match = allCookies[i].replace(" ", "");     // Deletes whitespace that may proceed the cookie name
-            cookieData = match.substr((cookieName.length + 1));     // Assign the substring that follows the cookie name
-        }
-
-        }
-
-
-    </script>
+        </script>
 
     </stuff>
 </div>
