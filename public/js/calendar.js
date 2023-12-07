@@ -44,16 +44,16 @@ function displayCalendar(aDate) {
     xhrEvents.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhrAssignments.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
+    let user = getUserId();
+
     // send it
-    let doc = {"month": monthCurrent.getFullYear().toString() + "-" + (monthCurrent.getMonth() + 1).toString().padStart(2, "0")};
+    let doc = {"month": monthCurrent.getFullYear().toString() + "-" + (monthCurrent.getMonth() + 1).toString().padStart(2, "0"), "user": user};
     //alert (JSON.stringify(doc));
     // This will only return when the response comes back from the server.
     xhrEvents.send(JSON.stringify(doc));
     xhrAssignments.send(JSON.stringify(doc));
 
     let calendarThings = JSON.parse(xhrEvents.response).concat(JSON.parse(xhrAssignments.response));
-
-    console.log(calendarThings.toString())
 
     // Rerender the calendar once you have the right events.
     renderCalendar(monthCurrent, monthFinal, calendarThings);
@@ -207,9 +207,11 @@ function displayMonth(monthNum) {
 
 function saveEvent() {
     let xhr = new XMLHttpRequest();
+    let user = getUserId();
 
     // create a dictionary containing all the table fields
     let eventDetail = {
+        "user": user,
         "event-name": document.getElementById("event-name").value,
         "event-start-date": document.getElementById("event-start-date").value,
         "event-end-date": document.getElementById("event-end-date").value,
@@ -229,6 +231,7 @@ function saveAssignment() {
     let xhr = new XMLHttpRequest();
     let assignmentRadio = document.getElementsByName("assignment-priority");
     let radioValue = 0;
+    let user = getUserId();
 
     for (let i = 0; i < assignmentRadio.length; i++) {
         if (assignmentRadio[i].checked) {
@@ -238,6 +241,7 @@ function saveAssignment() {
 
     // create a dictionary containing all the table fields
     let assignmentDetail = {
+        "user": user,
         "assignment-name": document.getElementById("assignment-name").value,
         "assignment-priority": radioValue,
         "assignment-date": document.getElementById("assignment-date").value,
@@ -252,3 +256,15 @@ function saveAssignment() {
     xhr.send(JSON.stringify(assignmentDetail));
 }
 
+function getUserId() {
+    let cookies = document.cookie.split("; ");
+    let user = "";
+
+    for (let i in cookies) {
+        if (cookies[i].indexOf("id") >= 0) {
+            user = cookies[i].substring(3);
+        }
+    }
+
+    return user;
+}

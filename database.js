@@ -103,33 +103,33 @@ function createDatabase() {
 // console.log('\nConnection closed.\n');
 // });
 
-function saveAssignment(event, user) {
+function saveAssignment(event) {
     try {
         let eventQuery = "insert into assignments (user, name, priority, due_date, description) values (?, ?, ?, ?, ?);";
-        connection.query(eventQuery, [user, event["assignment-name"], event["assignment-priority"], event["assignment-date"], event["assignment-description"]]);
+        connection.query(eventQuery, [event["user"], event["assignment-name"], event["assignment-priority"], event["assignment-date"], event["assignment-description"]]);
     } catch (e) {
         console.log(e)
     }
 }
 
-function saveEvent(event, user) {
+function saveEvent(event) {
     try {
         let eventQuery = "insert into events (user, name, start, end, location, description) values (?, ?, ?, ?, ?, ?);";
-        connection.query(eventQuery, [user, event["event-name"], event["event-start-date"], event["event-end-date"], event["event-location"], event["event-description"]]);
+        connection.query(eventQuery, [event["user"], event["event-name"], event["event-start-date"], event["event-end-date"], event["event-location"], event["event-description"]]);
     } catch (e) {
-        console.log(e)
+        console.log(e);
     }
 }
 
 function getEvents(req, res) {
-    let eventQuery = "select 'event' as type, events.* from events where start like ? order by start;"
+    let eventQuery = "select 'event' as type, events.* from events where start like ? and user like ? order by start;"
 
     //select 'assignment' type, name, due_date, description from assignments
     try {
         let month = req.body.month + "%";
-        //let month = "%";
-        console.log("Retrieving events for " + month);
-        connection.query(eventQuery, [month], function (e, rows) {
+        let user = req.body.user + "%";
+        console.log("Retrieving events for " + month + " and user " + user);
+        connection.query(eventQuery, [month, user], function (e, rows) {
             // Callback function when the database call completes
             if (e) {
 
@@ -142,9 +142,9 @@ function getEvents(req, res) {
             /* Display the formatted data retrieved from 'book' table
             using for loop */
             console.log("The records of calendar events:\n");
-            console.log("Type|Name|Start");
+            console.log("User|Type|Name|Start");
             for (let row of rows) {
-                console.log(row['type'], "|", row['name'], "|", row['start']);
+                console.log(row['user'], "|", row['type'], "|", row['name'], "|", row['start']);
             }
             console.log(JSON.stringify(rows));
             // Return the AJAX response to the get event call
@@ -156,14 +156,15 @@ function getEvents(req, res) {
 }
 
 function getAssignments(req, res) {
-    let assignmentQuery = "select 'assignment' as type, assignments.* from assignments where due_date like ? order by due_date;"
+    let assignmentQuery = "select 'assignment' as type, assignments.* from assignments where due_date like ? and user like ? order by due_date;"
 
     //select 'assignment' type, name, due_date, description from assignments
     try {
         let month = req.body.month + "%";
+        let user = req.body.user + "%";
         //let month = "%";
-        console.log("Retrieving assignments for " + month);
-        connection.query(assignmentQuery, [month], function (e, rows) {
+        console.log("Retrieving assignments for " + month + " and user " + user);
+        connection.query(assignmentQuery, [month, user], function (e, rows) {
             // Callback function when the database call completes
             if (e) {
 
@@ -176,9 +177,9 @@ function getAssignments(req, res) {
             /* Display the formatted data retrieved from 'book' table
             using for loop */
             console.log("The records of calendar assignments:\n");
-            console.log("Type|Name|Due Date");
+            console.log("User|Type|Name|Due Date");
             for (let row of rows) {
-                console.log(row['type'], "|", row['name'], "|", row['due_date']);
+                console.log(row['user'], '|', row['type'], "|", row['name'], "|", row['due_date']);
             }
             console.log(JSON.stringify(rows));
             // Return the AJAX response to the get event call

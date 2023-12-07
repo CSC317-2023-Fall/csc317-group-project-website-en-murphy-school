@@ -23,7 +23,7 @@ app.post("/saveEvent", function (req, res) {
     console.log(req.body);
     res.send('POST request to the homepage (new event)');
 
-    db.saveEvent(req.body, "putUser");
+    db.saveEvent(req.body);
 });
 
 // Router for save Assignment AJAX call
@@ -31,7 +31,7 @@ app.post("/saveAssignment", function (req, res) {
     console.log(req.body);
     res.send('POST request to the homepage (new assignment)');
 
-    db.saveAssignment(req.body, "putUser");
+    db.saveAssignment(req.body);
 });
 
 // Router for get events AJAX call
