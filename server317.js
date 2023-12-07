@@ -1,5 +1,5 @@
 var message = 'CSC-317 startup template\n'
-         + 'This template uses nodeJS, express, and express.static\n';
+    + 'This template uses nodeJS, express, and express.static\n';
 
 var port = 3000;
 var path = require('path');
@@ -38,6 +38,12 @@ app.post("/saveAssignment", function (req, res) {
 app.post("/getEvents", function (req, res) {
     console.log(req.body);
     db.getEvents(req, res);
+});
+
+// Router for get events AJAX call
+app.post("/getAssignments", function (req, res) {
+    console.log(req.body);
+    db.getAssignments(req, res);
 });
 
 var StaticDirectory = path.join(__dirname, 'public');

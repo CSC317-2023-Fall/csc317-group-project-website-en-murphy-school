@@ -16,7 +16,9 @@ function backwardMonth() {
 function displayCalendar(aDate) {
     let monthCurrent = new Date(aDate);
     let monthFinal = new Date(aDate);
-    let xhr = new XMLHttpRequest();
+    let xhrEvents = new XMLHttpRequest();
+    let xhrAssignments = new XMLHttpRequest();
+
 
     clearMonth();
 
@@ -35,19 +37,26 @@ function displayCalendar(aDate) {
 
     // opens request.  The third parameter indicates that this is a synchronous request, meaning that execution will block
     // until the request returns something
-    xhr.open("POST", "/getEvents", false);
+    xhrEvents.open("POST", "/getEvents", false);
+    xhrAssignments.open("POST", "/getAssignments", false);
 
     // This is REALLY IMPORTANT so that the server knows the JSON is approaching at mach-3
-    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    xhrEvents.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    xhrAssignments.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
     // send it
     let doc = {"month": monthCurrent.getFullYear().toString() + "-" + (monthCurrent.getMonth() + 1).toString().padStart(2, "0")};
     //alert (JSON.stringify(doc));
     // This will only return when the response comes back from the server.
-    xhr.send(JSON.stringify(doc));
+    xhrEvents.send(JSON.stringify(doc));
+    xhrAssignments.send(JSON.stringify(doc));
+
+    let calendarThings = JSON.parse(xhrEvents.response).concat(JSON.parse(xhrAssignments.response));
+
+    console.log(calendarThings.toString())
 
     // Rerender the calendar once you have the right events.
-    renderCalendar(monthCurrent, monthFinal, JSON.parse(xhr.response));
+    renderCalendar(monthCurrent, monthFinal, calendarThings);
 }
 
 function renderCalendar(monthCurrent, monthFinal, events) {
@@ -58,7 +67,6 @@ function renderCalendar(monthCurrent, monthFinal, events) {
         hasEvents = true;
 
         //alert(displayMonth(monthCurrent.getMonth()) + " events:\n" + events)
-    } else {
     }
 
     let week = 0;
@@ -94,30 +102,16 @@ function renderCalendar(monthCurrent, monthFinal, events) {
         let eventDisplay = "<ul>";
 
         for(let i in events) {
-            if (events[i].start.toString().slice(8, 10) === day.padStart(2, "0")) {
-                toInsert.push(events[i]);
+            if (events[i].type === "event") {
+                if (events[i].start.toString().slice(8, 10) === day.padStart(2, "0")) {
+                    toInsert.push(events[i]);
+                }
+            } else if (events[i].type === "assignment") {
+                if (events[i].due_date.toString().slice(8, 10) === day.padStart(2, "0")) {
+                    toInsert.push(events[i]);
+                }
             }
         }
-
-        /*
-                <ul>
-                    <li class="event">
-                        Important Event in Which I Will be Doing Things
-                        <div>
-                            <h2 class="event-name">
-                                Important Event in Which I Will be Doing Things
-                            </h2>
-                            <p class="event-time">
-                                2:00 am - 3:15 pm
-                            </p>
-                            <p class="event-description">
-                                This event is happening today. It is event which is happening and the day that it
-                                is happening just happens to be the day that is listed right here.
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-         */
 
 
         function insertPriorityImage(toInsertElement) {
@@ -147,18 +141,25 @@ function renderCalendar(monthCurrent, monthFinal, events) {
         }
 
         for (let i in toInsert) {
-            let startTime = toInsert[i].start.toString();
-            let timeString = startTime.slice(0, 10) + " " + startTime.slice(11, 16);
+
 
             if (toInsert[i].type.toString() === "assignment") {
+                let time = toInsert[i].due_date.toString();
+                let timeString = time.slice(0, 10) + " " + time.slice(11, 16);
+
                 eventDisplay += "<li class='assignment'>" + toInsert[i].name.toString() + "<div><h2 class='assignment-name'>"
                     + insertPriorityImage(toInsert[i]) + toInsert[i].name.toString() +
-                    "</h2><p class='assignment-time'>" + toInsert[i].start.toString() + "</p><p class='assignment-description'>" +
+                    "</h2><p class='assignment-time'>" + timeString + "</p><p class='assignment-description'>" +
                     toInsert[i].description.toString() + "</p></div></li><br/>";
             } else if (toInsert[i].type.toString() === "event") {
+                let startTime = toInsert[i].start.toString();
+                let startTimeString = startTime.slice(0, 10) + " " + startTime.slice(11, 16);
+                let endTime = toInsert[i].end.toString();
+                let endTimeString = endTime.slice(0, 10) + " " + endTime.slice(11, 16);
+
                 eventDisplay += "<li class='event'>" + toInsert[i].name.toString() + "<div><h2 class='event-name'>" + toInsert[i].name.toString() +
-                    "</h2><p class='event-time'>" + timeString + "</p><p class='event-description'>" +
-                    toInsert[i].description.toString() + "</p></div></li><br/>";
+                    "</h2><p class='event-time'>" + startTimeString + " - " + endTimeString + "</p><p class='event-description'>" +
+                    toInsert[i].description.toString() + "</p><p class='event-location'>" + toInsert[i].location.toString() + "</p></div></li><br/>";
             }
         }
 

@@ -122,12 +122,14 @@ function saveEvent(event, user) {
 }
 
 function getEvents(req, res) {
-    let query = "select * from (select 'event' as type, name, start, description from events union all select 'assignment' as type, name, due_date, description from assignments) all_events where start like ? order by start";
+    let eventQuery = "select 'event' as type, events.* from events where start like ? order by start;"
+
+    //select 'assignment' type, name, due_date, description from assignments
     try {
         let month = req.body.month + "%";
         //let month = "%";
         console.log("Retrieving events for " + month);
-        connection.query(query, [month], function (e, rows) {
+        connection.query(eventQuery, [month], function (e, rows) {
             // Callback function when the database call completes
             if (e) {
 
@@ -153,5 +155,39 @@ function getEvents(req, res) {
     }
 }
 
+function getAssignments(req, res) {
+    let assignmentQuery = "select 'assignment' as type, assignments.* from assignments where due_date like ? order by due_date;"
+
+    //select 'assignment' type, name, due_date, description from assignments
+    try {
+        let month = req.body.month + "%";
+        //let month = "%";
+        console.log("Retrieving assignments for " + month);
+        connection.query(assignmentQuery, [month], function (e, rows) {
+            // Callback function when the database call completes
+            if (e) {
+
+                // Show the error message if we have one
+                console.log("Error occurred in executing the query.");
+                return;
+            }
+
+
+            /* Display the formatted data retrieved from 'book' table
+            using for loop */
+            console.log("The records of calendar assignments:\n");
+            console.log("Type|Name|Due Date");
+            for (let row of rows) {
+                console.log(row['type'], "|", row['name'], "|", row['due_date']);
+            }
+            console.log(JSON.stringify(rows));
+            // Return the AJAX response to the get event call
+            res.send(rows);
+        });
+    } catch (e) {
+        console.log(e)
+    }
+}
+
 // These are the functions that are visible to the instantiation of this module
-module.exports = {"saveEvent": saveEvent, "saveAssignment": saveAssignment, "getEvents": getEvents};
+module.exports = {"saveEvent": saveEvent, "saveAssignment": saveAssignment, "getEvents": getEvents, "getAssignments": getAssignments};
