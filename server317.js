@@ -115,6 +115,7 @@ app.post('/signIn', function (req, res) {
 
                         let login = match ? 'true' : 'false';
                         res.cookie('loggedIn', login, { sameSite: 'lax', path: '/' });
+                        res.cookie('id', result[0].id, { sameSite: 'lax', path: '/' })
 
                         if (match) {
                             // Passwords match, proceed with redirect

@@ -39,7 +39,7 @@ function createDatabase() {
 //     // if(err) throw err;
 // });
 
-// qq = "CREATE TABLE USER(id INT PRIMARY KEY AUTO_INCREMENT, firstName varchar(50), lastName varchar(50), email varchar(50), password varchar (20))";
+// qq = "CREATE TABLE USER(id INT PRIMARY KEY AUTO_INCREMENT, firstName varchar(50), lastName varchar(50), email varchar(50), password varchar (200))";
 // connection.query(qq, function(err, result, fields){
 //     if(err) throw err;
 // });
